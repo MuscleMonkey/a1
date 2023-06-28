@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -265,9 +268,9 @@ public class exam extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("PIZZA FLAVOR : \n\n\nPIZZA SIZE : \n\n\nADD ONS: \n\n\n\n\nTOTAL PRICE : ");
         jScrollPane1.setViewportView(jTextArea1);
 
         txtffield_payment_amount.setColumns(10);
@@ -304,7 +307,7 @@ public class exam extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtffield_payment_amount, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1))
-                        .addContainerGap(100, Short.MAX_VALUE))))
+                        .addContainerGap(110, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -418,9 +421,23 @@ public class exam extends javax.swing.JFrame {
                 + "\n\n\nADD ONS: " + add_ons
                 + "\n\n\n\nTOTAL PRICE : " + pizza_price + " pesos");
         lbl_display_change.setText("Change is: " + change);
-        add_ons = "";
+        int confirm = JOptionPane.showConfirmDialog(null, "ENJOY YOUR PIZZA", "ORDER PLACED", JOptionPane.OK_CANCEL_OPTION);
+        if (confirm == JOptionPane.OK_OPTION)
+        {
+            rb_flavor_hawaiian.setSelected(true);
+            rb_size_small.setSelected(true);
+            pizza_price = 0;
+            chkbox_green_peppers.setSelected(false);
+            chkbox_olives.setSelected(false);
+            chkbox_onions.setSelected(false);
+            chkbox_pepper.setSelected(false);
+            chkbox_xtra_cheese.setSelected(false);
+            jTextArea1.setText("PIZZA FLAVOR : \n\n\nPIZZA SIZE : \n\n\nADD ONS: \n\n\n\nTOTAL PRICE : pesos");
+        lbl_display_change.setText("Change is: ");
+            JOptionPane.showMessageDialog(null, "ENJOY YOUR PIZZA");
+        }
     }//GEN-LAST:event_button_createorderActionPerformed
-
+   
     private void rb_size_smallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_size_smallActionPerformed
         // TODO add your handling code here:
         pizza_size = "SMALL";
