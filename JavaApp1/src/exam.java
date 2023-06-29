@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -265,9 +268,9 @@ public class exam extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("PIZZA FLAVOR : \n\n\nPIZZA SIZE : \n\n\nADD ONS: \n\n\n\n\nTOTAL PRICE : ");
         jScrollPane1.setViewportView(jTextArea1);
 
         txtffield_payment_amount.setColumns(10);
@@ -304,7 +307,7 @@ public class exam extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtffield_payment_amount, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1))
-                        .addContainerGap(100, Short.MAX_VALUE))))
+                        .addContainerGap(110, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,8 +340,7 @@ public class exam extends javax.swing.JFrame {
     double pizza_price = 0, add_ons_fee = 0;
     String pizza_flavor = "HAWAIIAN", pizza_size = "SMALL", add_ons = "";
     private void rb_flavor_hawaiianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_flavor_hawaiianActionPerformed
-        // TODO add your handling code here:
-
+        // TODO add your handling code here
         if (rb_flavor_hawaiian.isSelected()) {
             pizza_flavor = "HAWAIIAN";
             lbl_price_small.setText("90.00");
@@ -396,37 +398,46 @@ public class exam extends javax.swing.JFrame {
         if (rb_flavor_peperroni.isSelected() && rb_size_large.isSelected()) {
             pizza_price = 170;
         }
-        pizza_price = pizza_price + add_ons_fee;
         double payment_amount = Integer.parseInt(txtffield_payment_amount.getText());
         double change = payment_amount - pizza_price;
-        lbl_display_change.setText("Change is: " + change);
-        if (chkbox_pepper.isSelected())
-        {
+        if (chkbox_pepper.isSelected()) {
             add_ons = add_ons + "\n    PEPPER";
         }
-        if (chkbox_onions.isSelected())
-        {
+        if (chkbox_onions.isSelected()) {
             add_ons = add_ons + "\n    ONIONS";
         }
-        if (chkbox_olives.isSelected())
-        {
-            add_ons  = add_ons + "\n    BLACK OLIVES";
+        if (chkbox_olives.isSelected()) {
+            add_ons = add_ons + "\n    BLACK OLIVES";
         }
-        if (chkbox_green_peppers.isSelected())
-        {
-            add_ons = add_ons + "\n    GREEN PEPPERS";        
+        if (chkbox_green_peppers.isSelected()) {
+            add_ons = add_ons + "\n    GREEN PEPPERS";
         }
-        if (chkbox_xtra_cheese.isSelected())
-        {
+        if (chkbox_xtra_cheese.isSelected()) {
             add_ons = add_ons + "\n    EXTRA CHEESE";
         }
-        jTextArea1.setText("PIZZA FLAVOR : " + pizza_flavor 
-                    +"\n\n\nPIZZA SIZE : " + pizza_size
-                    + "\n\n\nADD ONS: " + add_ons    
-                    +"\n\n\n\nTOTAL PRICE : " + pizza_price + " pesos");
-        add_ons = "";
+        pizza_price = pizza_price + add_ons_fee;
+        jTextArea1.setText("PIZZA FLAVOR : " + pizza_flavor
+                + "\n\n\nPIZZA SIZE : " + pizza_size
+                + "\n\n\nADD ONS: " + add_ons
+                + "\n\n\n\nTOTAL PRICE : " + pizza_price + " pesos");
+        lbl_display_change.setText("Change is: " + change);
+        int confirm = JOptionPane.showConfirmDialog(null, "ENJOY YOUR PIZZA", "ORDER PLACED", JOptionPane.OK_CANCEL_OPTION);
+        if (confirm == JOptionPane.OK_OPTION)
+        {
+            rb_flavor_hawaiian.setSelected(true);
+            rb_size_small.setSelected(true);
+            pizza_price = 0;
+            chkbox_green_peppers.setSelected(false);
+            chkbox_olives.setSelected(false);
+            chkbox_onions.setSelected(false);
+            chkbox_pepper.setSelected(false);
+            chkbox_xtra_cheese.setSelected(false);
+            jTextArea1.setText("PIZZA FLAVOR : \n\n\nPIZZA SIZE : \n\n\nADD ONS: \n\n\n\nTOTAL PRICE : pesos");
+        lbl_display_change.setText("Change is: ");
+            JOptionPane.showMessageDialog(null, "ENJOY YOUR PIZZA");
+        }
     }//GEN-LAST:event_button_createorderActionPerformed
-
+   
     private void rb_size_smallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_size_smallActionPerformed
         // TODO add your handling code here:
         pizza_size = "SMALL";
@@ -465,7 +476,7 @@ public class exam extends javax.swing.JFrame {
         if (chkbox_olives.isSelected()) {
             add_ons_fee = add_ons_fee + 15;
         } else {
-            add_ons_fee = add_ons_fee - 15; 
+            add_ons_fee = add_ons_fee - 15;
         }
     }//GEN-LAST:event_chkbox_olivesActionPerformed
 

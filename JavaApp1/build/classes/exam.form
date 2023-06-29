@@ -52,7 +52,7 @@
                           </Group>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="100" max="32767" attributes="0"/>
+                      <EmptySpace pref="110" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -416,9 +416,9 @@
       <SubComponents>
         <Component class="javax.swing.JTextArea" name="jTextArea1">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="PIZZA FLAVOR : &#xa;&#xa;&#xa;PIZZA SIZE : &#xa;&#xa;&#xa;ADD ONS: &#xa;&#xa;&#xa;&#xa;&#xa;TOTAL PRICE : "/>
           </Properties>
         </Component>
       </SubComponents>
