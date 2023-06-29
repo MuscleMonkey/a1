@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author onad
@@ -400,6 +399,32 @@ public class exam extends javax.swing.JFrame {
         }
         double payment_amount = Integer.parseInt(txtffield_payment_amount.getText());
         double change = payment_amount - pizza_price;
+        if (change < 0) {
+            JOptionPane.showMessageDialog(null, "SORRY, INSUFFICIENT AMOUNT");
+        } else if (change >= 0) {
+            jTextArea1.setText("PIZZA FLAVOR : " + pizza_flavor
+                + "\n\n\nPIZZA SIZE : " + pizza_size
+                + "\n\n\nADD ONS: " + add_ons
+                + "\n\n\n\nTOTAL PRICE : " + pizza_price + " pesos");
+            lbl_display_change.setText("Change is: " + change);
+            int answer = JOptionPane.showConfirmDialog(null, "CONFIRM ORDER",null, JOptionPane.YES_NO_OPTION);   
+            if (answer == JOptionPane.YES_OPTION)
+            {
+                JOptionPane.showMessageDialog(null, "YOU WILL ENJOY YOU PIZZA IN A MINUTE! \nPLSS WAIT :)");
+                txtffield_payment_amount.setText("0");
+                jTextArea1.setText("PIZZA FLAVOR : "
+                + "\n\n\nPIZZA SIZE : " 
+                + "\n\n\nADD ONS: " 
+                + "\n\n\n\nTOTAL PRICE : 0 pesos");
+                rb_flavor_hawaiian.setSelected(true);
+                rb_size_small.setSelected(true);
+                chkbox_green_peppers.setSelected(false);
+                chkbox_olives.setSelected(false);
+                chkbox_onions.setSelected(false);
+                chkbox_pepper.setSelected(false);
+                chkbox_xtra_cheese.setSelected(false);
+            }
+        }
         if (chkbox_pepper.isSelected()) {
             add_ons = add_ons + "\n    PEPPER";
         }
@@ -416,28 +441,10 @@ public class exam extends javax.swing.JFrame {
             add_ons = add_ons + "\n    EXTRA CHEESE";
         }
         pizza_price = pizza_price + add_ons_fee;
-        jTextArea1.setText("PIZZA FLAVOR : " + pizza_flavor
-                + "\n\n\nPIZZA SIZE : " + pizza_size
-                + "\n\n\nADD ONS: " + add_ons
-                + "\n\n\n\nTOTAL PRICE : " + pizza_price + " pesos");
-        lbl_display_change.setText("Change is: " + change);
-        int confirm = JOptionPane.showConfirmDialog(null, "ENJOY YOUR PIZZA", "ORDER PLACED", JOptionPane.OK_CANCEL_OPTION);
-        if (confirm == JOptionPane.OK_OPTION)
-        {
-            rb_flavor_hawaiian.setSelected(true);
-            rb_size_small.setSelected(true);
-            pizza_price = 0;
-            chkbox_green_peppers.setSelected(false);
-            chkbox_olives.setSelected(false);
-            chkbox_onions.setSelected(false);
-            chkbox_pepper.setSelected(false);
-            chkbox_xtra_cheese.setSelected(false);
-            jTextArea1.setText("PIZZA FLAVOR : \n\n\nPIZZA SIZE : \n\n\nADD ONS: \n\n\n\nTOTAL PRICE : pesos");
-        lbl_display_change.setText("Change is: ");
-            JOptionPane.showMessageDialog(null, "ENJOY YOUR PIZZA");
-        }
+        
+
     }//GEN-LAST:event_button_createorderActionPerformed
-   
+
     private void rb_size_smallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_size_smallActionPerformed
         // TODO add your handling code here:
         pizza_size = "SMALL";
