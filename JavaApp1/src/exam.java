@@ -113,7 +113,7 @@ public class exam extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         buttonGroup2.add(rb_size_small);
-        rb_size_small.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        rb_size_small.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         rb_size_small.setSelected(true);
         rb_size_small.setText("SMALL-SIZED");
         rb_size_small.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +123,7 @@ public class exam extends javax.swing.JFrame {
         });
 
         buttonGroup2.add(rb_size_large);
-        rb_size_large.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        rb_size_large.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         rb_size_large.setText("LARGE-SIZED");
         rb_size_large.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +141,7 @@ public class exam extends javax.swing.JFrame {
         lbl_price_large.setText("130.00");
 
         buttonGroup2.add(rb_size_medium);
-        rb_size_medium.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        rb_size_medium.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         rb_size_medium.setText("MEDIUM-SIZED");
         rb_size_medium.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,12 +185,12 @@ public class exam extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rb_size_large)
                     .addComponent(lbl_price_large))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        chkbox_xtra_cheese.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        chkbox_xtra_cheese.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         chkbox_xtra_cheese.setText("EXTRA CHEESE");
         chkbox_xtra_cheese.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,7 +198,7 @@ public class exam extends javax.swing.JFrame {
             }
         });
 
-        chkbox_pepper.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        chkbox_pepper.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         chkbox_pepper.setText("PEPPER");
         chkbox_pepper.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,7 +206,7 @@ public class exam extends javax.swing.JFrame {
             }
         });
 
-        chkbox_onions.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        chkbox_onions.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         chkbox_onions.setText("ONIONS");
         chkbox_onions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,7 +214,7 @@ public class exam extends javax.swing.JFrame {
             }
         });
 
-        chkbox_olives.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        chkbox_olives.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         chkbox_olives.setText("BLACK OLIVES");
         chkbox_olives.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,7 +222,7 @@ public class exam extends javax.swing.JFrame {
             }
         });
 
-        chkbox_green_peppers.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        chkbox_green_peppers.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         chkbox_green_peppers.setText("GREEN PEPPERS");
         chkbox_green_peppers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,11 +272,14 @@ public class exam extends javax.swing.JFrame {
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
+        jTextArea1.setText("PIZZA FLAVOR :\n\n\nPIZZA SIZE :\n\n\nADD ONS:\n\n\n\nTOTAL PRICE : 0 pesos");
         jTextArea1.setFocusable(false);
         jScrollPane1.setViewportView(jTextArea1);
 
         txtffield_payment_amount.setColumns(10);
+        txtffield_payment_amount.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         txtffield_payment_amount.setText("0");
         txtffield_payment_amount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -284,8 +287,10 @@ public class exam extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel1.setText("Enter Payment Amount:");
 
+        lbl_display_change.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         lbl_display_change.setText("Change is: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -301,17 +306,16 @@ public class exam extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_display_change, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_display_change, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(164, 164, 164)
-                                .addComponent(txtffield_payment_amount, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1))
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(23, Short.MAX_VALUE))))
+                                .addComponent(jLabel1)
+                                .addGap(37, 37, 37)
+                                .addComponent(txtffield_payment_amount, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 31, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,9 +326,9 @@ public class exam extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtffield_payment_amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtffield_payment_amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)
                         .addComponent(lbl_display_change)
                         .addGap(48, 48, 48))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -335,7 +339,7 @@ public class exam extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)))
                 .addComponent(button_createorder, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
