@@ -53,8 +53,11 @@ public class exam extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lbl_display_change = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("PIZZA ORDERING SYSTEM");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setFocusable(false);
+        setLocation(new java.awt.Point(0, 30));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
@@ -260,6 +263,7 @@ public class exam extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        button_createorder.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         button_createorder.setText("CREATE ORDER");
         button_createorder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,8 +282,9 @@ public class exam extends javax.swing.JFrame {
         jTextArea1.setFocusable(false);
         jScrollPane1.setViewportView(jTextArea1);
 
-        txtffield_payment_amount.setColumns(10);
+        txtffield_payment_amount.setColumns(6);
         txtffield_payment_amount.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtffield_payment_amount.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtffield_payment_amount.setText("0");
         txtffield_payment_amount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -306,16 +311,13 @@ public class exam extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_display_change, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(37, 37, 37)
-                                .addComponent(txtffield_payment_amount, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 31, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtffield_payment_amount, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_display_change, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -413,13 +415,12 @@ public class exam extends javax.swing.JFrame {
                     + "YOUR ORDER NEED A TOTAL AMOUNT OF " + pizza_price);
         } else if (change >= 0) {
             jTextArea1.setText("PIZZA FLAVOR : " + pizza_flavor
-                + "\n\n\nPIZZA SIZE : " + pizza_size
-                + "\n\n\nADD ONS: " + add_ons
-                + "\n\n\n\nTOTAL PRICE : " + pizza_price + " pesos");
+                    + "\n\n\nPIZZA SIZE : " + pizza_size
+                    + "\n\n\nADD ONS: " + add_ons
+                    + "\n\n\n\nTOTAL PRICE : " + pizza_price + " pesos");
             lbl_display_change.setText("Change is: " + change);
-            int answer = JOptionPane.showConfirmDialog(null, "CONFIRM ORDER",null, JOptionPane.YES_NO_OPTION);   
-            if (answer == JOptionPane.YES_OPTION)
-            {
+            int confirmation = JOptionPane.showConfirmDialog(null, "CONFIRM ORDER", null, JOptionPane.YES_NO_OPTION);
+            if (confirmation == JOptionPane.YES_OPTION) {
                 JOptionPane.showMessageDialog(null, "YOU WILL ENJOY YOU PIZZA IN A MINUTE! \nPLSS WAIT :)");
                 txtffield_payment_amount.setText("0");
                 jTextArea1.setText("PIZZA FLAVOR :\n\n\nPIZZA SIZE :\n\n\nADD ONS:\n\n\n\nTOTAL PRICE : 0 pesos");
@@ -433,6 +434,7 @@ public class exam extends javax.swing.JFrame {
                 add_ons_fee = 0;
                 pizza_price = 0;
                 add_ons = "";
+                System.out.println(change);
                 lbl_display_change.setText("Change : ");
             }
         }
@@ -458,9 +460,7 @@ public class exam extends javax.swing.JFrame {
         if (chkbox_pepper.isSelected()) {
             add_ons = add_ons + "\n    PEPPER";
             add_ons_fee = add_ons_fee + 5;
-        }
-        else
-        {
+        } else {
             add_ons_fee = add_ons_fee - 5;
         }
     }//GEN-LAST:event_chkbox_pepperActionPerformed
@@ -470,9 +470,7 @@ public class exam extends javax.swing.JFrame {
         if (chkbox_onions.isSelected()) {
             add_ons = add_ons + "\n    ONIONS";
             add_ons_fee = add_ons_fee + 10;
-        }
-        else
-        {
+        } else {
             add_ons_fee = add_ons_fee - 10;
         }
     }//GEN-LAST:event_chkbox_onionsActionPerformed
@@ -482,9 +480,7 @@ public class exam extends javax.swing.JFrame {
         if (chkbox_olives.isSelected()) {
             add_ons = add_ons + "\n    BLACK OLIVES";
             add_ons_fee = add_ons_fee + 15;
-        }
-        else
-        {
+        } else {
             add_ons_fee = add_ons_fee - 15;
         }
     }//GEN-LAST:event_chkbox_olivesActionPerformed
@@ -494,9 +490,7 @@ public class exam extends javax.swing.JFrame {
         if (chkbox_green_peppers.isSelected()) {
             add_ons = add_ons + "\n    GREEN PEPPERS";
             add_ons_fee = add_ons_fee + 20;
-        }
-        else
-        {
+        } else {
             add_ons_fee = add_ons_fee - 20;
         }
     }//GEN-LAST:event_chkbox_green_peppersActionPerformed
@@ -506,9 +500,7 @@ public class exam extends javax.swing.JFrame {
         if (chkbox_xtra_cheese.isSelected()) {
             add_ons = add_ons + "\n    EXTRA CHEESE";
             add_ons_fee = add_ons_fee + 25;
-        }
-        else
-        {
+        } else {
             add_ons_fee = add_ons_fee - 25;
         }
     }//GEN-LAST:event_chkbox_xtra_cheeseActionPerformed
