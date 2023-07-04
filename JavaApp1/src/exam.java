@@ -288,7 +288,6 @@ public class exam extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("PIZZA FLAVOR :\n\n\nPIZZA SIZE :\n\n\nADD ONS:\n\n\n\nTOTAL PRICE : 0 pesos");
         jTextArea1.setFocusable(false);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -421,15 +420,15 @@ public class exam extends javax.swing.JFrame {
         pizza_price = pizza_price + add_ons_fee;
         double payment_amount = Double.parseDouble(txtffield_payment_amount.getText());
         double change = payment_amount - pizza_price;
-        if (change < 0) {
-            JOptionPane.showMessageDialog(null, "SORRY, INSUFFICIENT AMOUNT\n"
-                    + "YOUR ORDER NEED A TOTAL AMOUNT OF " + pizza_price);
-        } else if (change >= 0) {
-            jTextArea1.setText("PIZZA FLAVOR : " + pizza_flavor
+        jTextArea1.setText("PIZZA FLAVOR : " + pizza_flavor
                     + "\n\n\nPIZZA SIZE : " + pizza_size
                     + "\n\n\nADD ONS: " + add_ons
                     + "\n\n\n\nTOTAL PRICE : " + pizza_price + " pesos");
-            lbl_display_change.setText("Change is: " + change);
+            
+        if (change < 0) {
+            JOptionPane.showMessageDialog(null, "SORRY, INSUFFICIENT AMOUNT\n");
+        } else if (change >= 0) {
+            lbl_display_change.setText("Change : " + change);
             int confirmation = JOptionPane.showConfirmDialog(null, "CONFIRM ORDER", null, JOptionPane.YES_NO_OPTION);
             if (confirmation == JOptionPane.YES_OPTION) {
                 JOptionPane.showMessageDialog(null, "YOU WILL ENJOY YOU PIZZA IN A MINUTE! \nPLSS WAIT :)");
@@ -445,7 +444,6 @@ public class exam extends javax.swing.JFrame {
                 add_ons_fee = 0;
                 pizza_price = 0;
                 add_ons = "";
-                System.out.println(change);
                 lbl_display_change.setText("Change : ");
             }
         }
