@@ -38,16 +38,14 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="button_createorder" max="32767" attributes="0"/>
-                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="button_createorder" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -84,19 +82,19 @@
                       </Group>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Component id="lbl_display_change" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="96" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="56" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="button_createorder" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -150,7 +148,7 @@
               <ComponentRef name="buttonGroup1"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="sansserif" size="16" style="0"/>
+              <Font name="sansserif" size="18" style="0"/>
             </Property>
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="HAWAIIAN"/>
@@ -166,7 +164,7 @@
               <ComponentRef name="buttonGroup1"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="sansserif" size="16" style="0"/>
+              <Font name="sansserif" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="HAM AND CHEESE"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -181,7 +179,7 @@
               <ComponentRef name="buttonGroup1"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="sansserif" size="16" style="0"/>
+              <Font name="sansserif" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="PEPERRONI"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -211,7 +209,7 @@
                           <Component id="rb_size_medium" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lbl_price_medium" min="-2" pref="50" max="-2" attributes="0"/>
-                          <EmptySpace min="1" pref="7" max="32767" attributes="0"/>
+                          <EmptySpace min="1" pref="6" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -262,7 +260,7 @@
               <ComponentRef name="buttonGroup2"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="SansSerif" size="16" style="0"/>
+              <Font name="SansSerif" size="18" style="0"/>
             </Property>
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="SMALL-SIZED"/>
@@ -278,7 +276,7 @@
               <ComponentRef name="buttonGroup2"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="SansSerif" size="16" style="0"/>
+              <Font name="SansSerif" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="LARGE-SIZED"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -289,18 +287,27 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_price_medium">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="110.00"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_price_small">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="90.00"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_price_large">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="130.00"/>
           </Properties>
@@ -311,7 +318,7 @@
               <ComponentRef name="buttonGroup2"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="SansSerif" size="16" style="0"/>
+              <Font name="SansSerif" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="MEDIUM-SIZED"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -369,7 +376,7 @@
         <Component class="javax.swing.JCheckBox" name="chkbox_xtra_cheese">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="SansSerif" size="16" style="0"/>
+              <Font name="SansSerif" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="EXTRA CHEESE"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -381,7 +388,7 @@
         <Component class="javax.swing.JCheckBox" name="chkbox_pepper">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="SansSerif" size="16" style="0"/>
+              <Font name="SansSerif" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="PEPPER"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -393,7 +400,7 @@
         <Component class="javax.swing.JCheckBox" name="chkbox_onions">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="SansSerif" size="16" style="0"/>
+              <Font name="SansSerif" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ONIONS"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -405,7 +412,7 @@
         <Component class="javax.swing.JCheckBox" name="chkbox_olives">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="SansSerif" size="16" style="0"/>
+              <Font name="SansSerif" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="BLACK OLIVES"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -417,7 +424,7 @@
         <Component class="javax.swing.JCheckBox" name="chkbox_green_peppers">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="SansSerif" size="16" style="0"/>
+              <Font name="SansSerif" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="GREEN PEPPERS"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -431,7 +438,7 @@
     <Component class="javax.swing.JButton" name="button_createorder">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="sansserif" size="18" style="0"/>
+          <Font name="sansserif" size="20" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="CREATE ORDER"/>
       </Properties>
