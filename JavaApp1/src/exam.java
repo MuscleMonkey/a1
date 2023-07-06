@@ -479,7 +479,7 @@ public class exam extends javax.swing.JFrame {
             lbl_display_change.setText(" Change: ");
             System.out.println(change);
         } else if (change >= 0) {
-            lbl_display_change.setText("Change : " + change);
+            lbl_display_change.setText("Change : " + change + " pesos");
             int confirmation = JOptionPane.showConfirmDialog(null, "CONFIRM ORDER", null, JOptionPane.YES_NO_OPTION);
             if (confirmation == JOptionPane.YES_OPTION) {
                 JOptionPane.showMessageDialog(null, "YOU WILL ENJOY YOUR PIZZA IN A MINUTE! \nPLSS WAIT :)");
