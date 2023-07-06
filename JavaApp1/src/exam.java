@@ -52,6 +52,10 @@ public class exam extends javax.swing.JFrame {
         txtffield_payment_amount = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         lbl_display_change = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("PIZZA ORDERING SYSTEM");
@@ -112,7 +116,7 @@ public class exam extends javax.swing.JFrame {
                 .addComponent(rb_flavor_hamcheese)
                 .addGap(7, 7, 7)
                 .addComponent(rb_flavor_peperroni)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -165,18 +169,21 @@ public class exam extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(rb_size_small)
-                        .addGap(18, 18, 18)
-                        .addComponent(lbl_price_small, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(rb_size_medium)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl_price_medium, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbl_price_medium, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 7, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(rb_size_large)
-                        .addGap(18, 18, 18)
-                        .addComponent(lbl_price_large, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(1, 1, 1))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(rb_size_small)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbl_price_small, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(rb_size_large)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbl_price_large, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,18 +314,34 @@ public class exam extends javax.swing.JFrame {
         lbl_display_change.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         lbl_display_change.setText("Change is: ");
 
+        jLabel3.setFont(new java.awt.Font("sansserif", 0, 20)); // NOI18N
+        jLabel3.setText("ORDER SUMMARY");
+
+        jLabel2.setFont(new java.awt.Font("sansserif", 0, 20)); // NOI18N
+        jLabel2.setText("ADD-ONS");
+
+        jLabel4.setFont(new java.awt.Font("sansserif", 0, 20)); // NOI18N
+        jLabel4.setText("FLAVOR");
+
+        jLabel5.setFont(new java.awt.Font("sansserif", 0, 20)); // NOI18N
+        jLabel5.setText("FLAVOR");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(button_createorder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(57, 57, 57)
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(button_createorder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4))
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_display_change, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -326,32 +349,40 @@ public class exam extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtffield_payment_amount, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(31, Short.MAX_VALUE))
+                            .addComponent(txtffield_payment_amount, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel3)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtffield_payment_amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(11, 11, 11)
-                        .addComponent(lbl_display_change)
-                        .addGap(48, 48, 48))
+                        .addComponent(lbl_display_change))
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)))
-                .addComponent(button_createorder, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button_createorder, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(13, 13, 13))
         );
 
         pack();
@@ -417,6 +448,23 @@ public class exam extends javax.swing.JFrame {
         if (rb_flavor_peperroni.isSelected() && rb_size_large.isSelected()) {
             pizza_price = 170;
         }
+        add_ons = "";
+        if (chkbox_pepper.isSelected()) {
+            add_ons = add_ons + "\n\tPEPPER";
+        }
+        if (chkbox_onions.isSelected()) {
+            add_ons = add_ons + "\n\tONIONS";
+        }
+        if (chkbox_olives.isSelected()) {
+            add_ons = add_ons + "\n\tBLACK OLIVES";
+        }
+        if (chkbox_green_peppers.isSelected()) {
+            add_ons = add_ons + "\n\tGREEN PEPPERS";
+        }
+        if (chkbox_xtra_cheese.isSelected()) {
+            add_ons = add_ons + "\n\tEXTRA CHEESE";
+        }
+
         pizza_price = pizza_price + add_ons_fee;
         double payment_amount = Double.parseDouble(txtffield_payment_amount.getText());
         double change = payment_amount - pizza_price;
@@ -425,14 +473,16 @@ public class exam extends javax.swing.JFrame {
                 + "\n\n\nADD ONS: " + add_ons
                 + "\n\n\n\nTOTAL PRICE : " + pizza_price + " pesos");
         if (change < 0) {
-            JOptionPane.showMessageDialog(null, "SORRY, INSUFFICIENT AMOUNT\n");
+            JOptionPane.showMessageDialog(null, "SORRY, INSUFFICIENT AMOUNT\n", null, JOptionPane.WARNING_MESSAGE);
+            lbl_display_change.setText(" Change: ");
+            System.out.println(change);
         } else if (change >= 0) {
             lbl_display_change.setText("Change : " + change);
             int confirmation = JOptionPane.showConfirmDialog(null, "CONFIRM ORDER", null, JOptionPane.YES_NO_OPTION);
             if (confirmation == JOptionPane.YES_OPTION) {
-                JOptionPane.showMessageDialog(null, "YOU WILL ENJOY YOU PIZZA IN A MINUTE! \nPLSS WAIT :)");
+                JOptionPane.showMessageDialog(null, "YOU WILL ENJOY YOUR PIZZA IN A MINUTE! \nPLSS WAIT :)");
                 txtffield_payment_amount.setText("0");
-                jTextArea1.setText("PIZZA FLAVOR :\n\n\nPIZZA SIZE :\n\n\nADD ONS:\n\n\n\nTOTAL PRICE : 0 pesos");
+                jTextArea1.setText("");
                 rb_flavor_hawaiian.setSelected(true);
                 rb_size_small.setSelected(true);
                 chkbox_green_peppers.setSelected(false);
@@ -442,10 +492,12 @@ public class exam extends javax.swing.JFrame {
                 chkbox_xtra_cheese.setSelected(false);
                 add_ons_fee = 0;
                 pizza_price = 0;
-                add_ons = "";
+                pizza_flavor = "HAWAIIAN";
+                pizza_size = "SMALL";
                 lbl_display_change.setText("Change : ");
             }
         }
+
     }//GEN-LAST:event_button_createorderActionPerformed
 
     private void rb_size_smallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_size_smallActionPerformed
@@ -465,52 +517,42 @@ public class exam extends javax.swing.JFrame {
 
     private void chkbox_pepperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkbox_pepperActionPerformed
         // TODO add your handling code here:
-        if (chkbox_pepper.isSelected()) {
-            add_ons = add_ons + "\n    PEPPER";
+        if (chkbox_pepper.isSelected())
             add_ons_fee = add_ons_fee + 5;
-        } else {
+        else
             add_ons_fee = add_ons_fee - 5;
-        }
     }//GEN-LAST:event_chkbox_pepperActionPerformed
 
     private void chkbox_onionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkbox_onionsActionPerformed
         // TODO add your handling code here:
-        if (chkbox_onions.isSelected()) {
-            add_ons = add_ons + "\n    ONIONS";
+        if (chkbox_onions.isSelected())
             add_ons_fee = add_ons_fee + 10;
-        } else {
+        else
             add_ons_fee = add_ons_fee - 10;
-        }
     }//GEN-LAST:event_chkbox_onionsActionPerformed
 
     private void chkbox_olivesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkbox_olivesActionPerformed
         // TODO add your handling code here:
-        if (chkbox_olives.isSelected()) {
-            add_ons = add_ons + "\n    BLACK OLIVES";
+        if (chkbox_olives.isSelected())
             add_ons_fee = add_ons_fee + 15;
-        } else {
+        else
             add_ons_fee = add_ons_fee - 15;
-        }
     }//GEN-LAST:event_chkbox_olivesActionPerformed
 
     private void chkbox_green_peppersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkbox_green_peppersActionPerformed
         // TODO add your handling code here:
-        if (chkbox_green_peppers.isSelected()) {
-            add_ons = add_ons + "\n    GREEN PEPPERS";
+        if (chkbox_green_peppers.isSelected())
             add_ons_fee = add_ons_fee + 20;
-        } else {
+        else
             add_ons_fee = add_ons_fee - 20;
-        }
     }//GEN-LAST:event_chkbox_green_peppersActionPerformed
 
     private void chkbox_xtra_cheeseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkbox_xtra_cheeseActionPerformed
         // TODO add your handling code here:
-        if (chkbox_xtra_cheese.isSelected()) {
-            add_ons = add_ons + "\n    EXTRA CHEESE";
+        if (chkbox_xtra_cheese.isSelected())
             add_ons_fee = add_ons_fee + 25;
-        } else {
+        else
             add_ons_fee = add_ons_fee - 25;
-        }
     }//GEN-LAST:event_chkbox_xtra_cheeseActionPerformed
 
     private void txtffield_payment_amountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtffield_payment_amountActionPerformed
@@ -563,6 +605,10 @@ public class exam extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkbox_pepper;
     private javax.swing.JCheckBox chkbox_xtra_cheese;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
