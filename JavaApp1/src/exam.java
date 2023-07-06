@@ -421,10 +421,9 @@ public class exam extends javax.swing.JFrame {
         double payment_amount = Double.parseDouble(txtffield_payment_amount.getText());
         double change = payment_amount - pizza_price;
         jTextArea1.setText("PIZZA FLAVOR : " + pizza_flavor
-                    + "\n\n\nPIZZA SIZE : " + pizza_size
-                    + "\n\n\nADD ONS: " + add_ons
-                    + "\n\n\n\nTOTAL PRICE : " + pizza_price + " pesos");
-            
+                + "\n\n\nPIZZA SIZE : " + pizza_size
+                + "\n\n\nADD ONS: " + add_ons
+                + "\n\n\n\nTOTAL PRICE : " + pizza_price + " pesos");
         if (change < 0) {
             JOptionPane.showMessageDialog(null, "SORRY, INSUFFICIENT AMOUNT\n");
         } else if (change >= 0) {
