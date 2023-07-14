@@ -1,5 +1,10 @@
 /JavaApp1/dist/
 /JavaApplication2/nbproject/private/
 /JavaApplication2/build/
+<<<<<<< HEAD
 /JavaApp1/nbproject/private/
 /JavaApp1/build/
+=======
+/oop/nbproject/private/
+/oop/build/
+>>>>>>> c7cb64e ("test")
