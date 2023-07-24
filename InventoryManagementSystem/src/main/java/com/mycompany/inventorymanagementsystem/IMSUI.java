@@ -164,33 +164,33 @@ public class IMSUI extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        int tableRowCount = model.getRowCount();
-        int tableColumnCount = model.getColumnCount();
-        Object[][] obj2 = new Object[tableRowCount][tableColumnCount];
-        int cnt = 1;
-        int i;
-
-        for (i = 0; i < tableRowCount; i++) {
-
-            if (model.getValueAt(i, 0).equals(tfSearch)) {
-                obj2[i][0] = model.getValueAt(i, 0);
-                obj2[i][1] = model.getValueAt(i, 1);
-                obj2[i][2] = model.getValueAt(i, 2);
-                obj2[i][3] = model.getValueAt(i, 3);
-                cnt++;
-            }
-        }
-        Object[] obj = new Object[4];
-        System.out.println(cnt);
-        model.setRowCount(cnt);
-        for (i = 0; i < cnt; i++) {
-            obj[0] = obj2[i][0];
-            obj[1] = obj2[i][0];
-            obj[2] = obj2[i][0];
-            obj[3] = obj2[i][0];
-            model.addRow(obj);
-        }
+//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+//        int tableRowCount = model.getRowCount();
+//        int tableColumnCount = model.getColumnCount();
+//        Object[][] obj2 = new Object[tableRowCount][tableColumnCount];
+//        int cnt = 1;
+//        int i;
+//
+//        for (i = 0; i < tableRowCount; i++) {
+//
+//            if (model.getValueAt(i, 0).equals(tfSearch)) {
+//                obj2[i][0] = model.getValueAt(i, 0);
+//                obj2[i][1] = model.getValueAt(i, 1);
+//                obj2[i][2] = model.getValueAt(i, 2);
+//                obj2[i][3] = model.getValueAt(i, 3);
+//                cnt++;
+//            }
+//        }
+//        Object[] obj = new Object[4];
+//        System.out.println(cnt);
+//        model.setRowCount(cnt);
+//        for (i = 0; i < cnt; i++) {
+//            obj[0] = obj2[i][0];
+//            obj[1] = obj2[i][0];
+//            obj[2] = obj2[i][0];
+//            obj[3] = obj2[i][0];
+//            model.addRow(obj);
+//        }
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void tfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchActionPerformed
@@ -249,7 +249,7 @@ public class IMSUI extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public static javax.swing.JTable jTable1;
     private javax.swing.JTextField tfSearch;
     // End of variables declaration//GEN-END:variables
 }
