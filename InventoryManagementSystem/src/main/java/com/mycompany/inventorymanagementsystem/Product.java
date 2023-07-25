@@ -17,7 +17,7 @@ public class Product {
     }
 
     public Product(String id, String name, String description, int quantity, int price) {
-        this.id = name;
+        this.id = id;
         this.name = name;
         this.description = description;
         this.quantity = quantity;
