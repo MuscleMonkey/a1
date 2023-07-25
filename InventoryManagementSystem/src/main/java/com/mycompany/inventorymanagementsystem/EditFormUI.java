@@ -4,6 +4,7 @@
  */
 package com.mycompany.inventorymanagementsystem;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -33,19 +34,21 @@ public class EditFormUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        btnApply = new javax.swing.JButton();
+        btnSet = new javax.swing.JButton();
         tfName = new javax.swing.JTextField();
         tfId = new javax.swing.JTextField();
         tfQty = new javax.swing.JTextField();
         tfDesc = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
         tfPrice = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAdd1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(250, 0));
+        setLocationByPlatform(true);
+        setResizable(false);
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel3.setText("Quantity");
@@ -64,11 +67,11 @@ public class EditFormUI extends javax.swing.JFrame {
             }
         });
 
-        btnApply.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
-        btnApply.setText("SET");
-        btnApply.addActionListener(new java.awt.event.ActionListener() {
+        btnSet.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
+        btnSet.setText("SET");
+        btnSet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnApplyActionPerformed(evt);
+                btnSetActionPerformed(evt);
             }
         });
 
@@ -104,14 +107,6 @@ public class EditFormUI extends javax.swing.JFrame {
             }
         });
 
-        jTextField10.setColumns(10);
-        jTextField10.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
-            }
-        });
-
         tfPrice.setColumns(10);
         tfPrice.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         tfPrice.addActionListener(new java.awt.event.ActionListener() {
@@ -134,11 +129,11 @@ public class EditFormUI extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
-        jButton2.setText("CANCEL");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd1.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
+        btnAdd1.setText("DELETE");
+        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAdd1ActionPerformed(evt);
             }
         });
 
@@ -155,7 +150,7 @@ public class EditFormUI extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tfId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -172,24 +167,20 @@ public class EditFormUI extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(tfPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnApply)
+                .addComponent(btnSet)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAdd)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAdd1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(74, 74, 74))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(10, 10, 10)
-                    .addComponent(jButton2)
-                    .addContainerGap(219, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,21 +204,15 @@ public class EditFormUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(tfPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnApply)
-                    .addComponent(btnAdd))
+                    .addComponent(btnSet)
+                    .addComponent(btnAdd)
+                    .addComponent(btnAdd1))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(36, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(328, Short.MAX_VALUE)
-                    .addComponent(jButton2)
-                    .addGap(38, 38, 38)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -262,32 +247,26 @@ public class EditFormUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfDescActionPerformed
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
-
     private void tfPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPriceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPriceActionPerformed
 
-    private void btnApplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApplyActionPerformed
+    private void btnSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetActionPerformed
         // TODO add your handling code here:
-        this.hide();
-        IMSUI.btnEdit.setEnabled(true); 
+        DefaultTableModel model = (DefaultTableModel) IMSUI.jTable1.getModel();
+        int selectedRow = IMSUI.jTable1.getSelectedRow();
         
-        
-        
-        Product product = new Product();
-        product.setId(tfId.getText());
-        product.setName(tfName.getText());
-        product.setDescription(tfDesc.getText());
-        product.setQuantity(Integer.parseInt(tfQty.getText()));
-        product.setPrice(Integer.parseInt((tfPrice.getText())));
-    }//GEN-LAST:event_btnApplyActionPerformed
+       
+        model.setValueAt(tfId.getText(), selectedRow,0);
+        model.setValueAt(tfName.getText(), selectedRow,1);
+        model.setValueAt(tfDesc.getText(), selectedRow,2);
+        model.setValueAt(tfQty.getText(), selectedRow,3);
+        model.setValueAt(tfPrice.getText(), selectedRow,4);
+    }//GEN-LAST:event_btnSetActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        
+
         DefaultTableModel model = (DefaultTableModel) IMSUI.jTable1.getModel();
         Object[] obj = new Object[5];
         obj[0] = tfId.getText();
@@ -301,13 +280,20 @@ public class EditFormUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.hide();
-        IMSUI.btnEdit.setEnabled(true); 
-        
+        IMSUI.btnEdit.setEnabled(true);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        DefaultTableModel model = (DefaultTableModel) IMSUI.jTable1.getModel();
+        if (IMSUI.jTable1.getSelectedRowCount() == 1) {
+            model.removeRow(IMSUI.jTable1.getSelectedRow());
+        } else if (IMSUI.jTable1.getSelectedRowCount()== 0) {
+            JOptionPane.showMessageDialog(null, "No Row Is Selected");
+        }
+
+    }//GEN-LAST:event_btnAdd1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,20 +335,19 @@ public class EditFormUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAdd;
-    public javax.swing.JButton btnApply;
+    public javax.swing.JButton btnAdd1;
+    public javax.swing.JButton btnSet;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField tfDesc;
-    private javax.swing.JTextField tfId;
-    private javax.swing.JTextField tfName;
-    private javax.swing.JTextField tfPrice;
-    private javax.swing.JTextField tfQty;
+    public static javax.swing.JTextField tfDesc;
+    public static javax.swing.JTextField tfId;
+    public static javax.swing.JTextField tfName;
+    public static javax.swing.JTextField tfPrice;
+    public static javax.swing.JTextField tfQty;
     // End of variables declaration//GEN-END:variables
 }

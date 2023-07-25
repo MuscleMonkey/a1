@@ -9,15 +9,6 @@ package com.mycompany.inventorymanagementsystem;
  * @author onad
  */
 public class InventoryManagementSystem {
-    boolean isClosed;
-
-    public void setIsClosed(boolean isClosed) {
-        this.isClosed = isClosed;
-    }
-
-    boolean getIsClosed() {
-        return this.isClosed;
-    }
     public static void main(String[] args) {
         new LoginUI().show();
     }
