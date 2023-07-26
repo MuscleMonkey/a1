@@ -290,9 +290,11 @@ public class EditFormUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) IMSUI.jTable1.getModel();
         DefaultTableModel model2 = (DefaultTableModel) IMSUI.jTable2.getModel();
+        int selectedRow = IMSUI.jTable1.getSelectedRow();
+        
         if (IMSUI.jTable1.getSelectedRowCount() == 1) {
-            model.removeRow(IMSUI.jTable1.getSelectedRow());
-            model2.removeRow(IMSUI.jTable1.getSelectedRow());
+            model.removeRow(selectedRow);
+            model2.removeRow(selectedRow);
         } else if (IMSUI.jTable1.getSelectedRowCount()== 0) {
             JOptionPane.showMessageDialog(null, "No Row Is Selected");
         }
