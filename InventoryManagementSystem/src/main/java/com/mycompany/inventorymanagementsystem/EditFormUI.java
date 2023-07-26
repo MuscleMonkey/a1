@@ -43,7 +43,7 @@ public class EditFormUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
-        btnAdd1 = new javax.swing.JButton();
+        btnRemove = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(250, 0));
@@ -129,11 +129,11 @@ public class EditFormUI extends javax.swing.JFrame {
             }
         });
 
-        btnAdd1.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
-        btnAdd1.setText("DELETE");
-        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
+        btnRemove.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
+        btnRemove.setText("DELETE");
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd1ActionPerformed(evt);
+                btnRemoveActionPerformed(evt);
             }
         });
 
@@ -175,7 +175,7 @@ public class EditFormUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAdd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAdd1)
+                .addComponent(btnRemove)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -209,7 +209,7 @@ public class EditFormUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSet)
                     .addComponent(btnAdd)
-                    .addComponent(btnAdd1))
+                    .addComponent(btnRemove))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(36, Short.MAX_VALUE))
@@ -268,6 +268,7 @@ public class EditFormUI extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         DefaultTableModel model = (DefaultTableModel) IMSUI.jTable1.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) IMSUI.jTable2.getModel();
         Object[] obj = new Object[5];
         obj[0] = tfId.getText();
         obj[1] = tfName.getText();
@@ -275,6 +276,7 @@ public class EditFormUI extends javax.swing.JFrame {
         obj[3] = tfQty.getText();
         obj[4] = tfPrice.getText();
         model.addRow(obj);
+        model2.addRow(obj);
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -284,16 +286,18 @@ public class EditFormUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) IMSUI.jTable1.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) IMSUI.jTable2.getModel();
         if (IMSUI.jTable1.getSelectedRowCount() == 1) {
             model.removeRow(IMSUI.jTable1.getSelectedRow());
+            model2.removeRow(IMSUI.jTable1.getSelectedRow());
         } else if (IMSUI.jTable1.getSelectedRowCount()== 0) {
             JOptionPane.showMessageDialog(null, "No Row Is Selected");
         }
 
-    }//GEN-LAST:event_btnAdd1ActionPerformed
+    }//GEN-LAST:event_btnRemoveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -335,7 +339,7 @@ public class EditFormUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAdd;
-    public javax.swing.JButton btnAdd1;
+    public javax.swing.JButton btnRemove;
     public javax.swing.JButton btnSet;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
