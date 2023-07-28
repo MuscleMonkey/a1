@@ -36,7 +36,7 @@ public class IMSUI extends javax.swing.JFrame {
     public void addRowToData() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         DefaultTableModel model2 = (DefaultTableModel) jTable2.getModel();
-        
+
         ArrayList<Product> list = listProduct();
         Object rowdata[] = new Object[5];
         for (int i = 0; i < list.size(); i++) {
@@ -82,7 +82,7 @@ public class IMSUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnCustomerEdit = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -110,14 +110,12 @@ public class IMSUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setColumnSelectionAllowed(true);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         tfSearch.setColumns(12);
         tfSearch.setToolTipText("type product id...");
@@ -158,7 +156,7 @@ public class IMSUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -214,7 +212,7 @@ public class IMSUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(383, Short.MAX_VALUE))
+                .addContainerGap(440, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,14 +232,12 @@ public class IMSUI extends javax.swing.JFrame {
                 "Customer no.", "Name", "Phone no.", "E-mail"
             }
         ));
-        jTable3.setColumnSelectionAllowed(true);
         jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable3MouseClicked(evt);
             }
         });
         jScrollPane3.setViewportView(jTable3);
-        jTable3.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         tfCustomerNo.setColumns(12);
         tfCustomerNo.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -282,10 +278,10 @@ public class IMSUI extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel4.setText("E-mail");
 
-        jButton1.setText("edit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCustomerEdit.setText("edit");
+        btnCustomerEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCustomerEditActionPerformed(evt);
             }
         });
 
@@ -297,6 +293,11 @@ public class IMSUI extends javax.swing.JFrame {
         });
 
         jButton3.setText("remove");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("insert");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -329,7 +330,7 @@ public class IMSUI extends javax.swing.JFrame {
                     .addComponent(tfCustomerNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jButton1)
+                        .addComponent(btnCustomerEdit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -359,7 +360,7 @@ public class IMSUI extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(32, 32, 32)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
+                            .addComponent(btnCustomerEdit)
                             .addComponent(btnClear)
                             .addComponent(jButton3)
                             .addComponent(jButton4)))
@@ -435,13 +436,13 @@ public class IMSUI extends javax.swing.JFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:        
         int selectedRow = jTable1.getSelectedRow();
-        EditFormUI.tfId.setText(jTable1.getValueAt(selectedRow,0).toString());
-        EditFormUI.tfName.setText(jTable1.getValueAt(selectedRow,1).toString());
-        EditFormUI.tfDesc.setText(jTable1.getValueAt(selectedRow,2).toString());
-        EditFormUI.tfQty.setText(jTable1.getValueAt(selectedRow,3).toString());
-        EditFormUI.tfPrice.setText(jTable1.getValueAt(selectedRow,4).toString());
-        
-        
+        EditFormUI.tfId.setText(jTable1.getValueAt(selectedRow, 0).toString());
+        EditFormUI.tfName.setText(jTable1.getValueAt(selectedRow, 1).toString());
+        EditFormUI.tfDesc.setText(jTable1.getValueAt(selectedRow, 2).toString());
+        EditFormUI.tfQty.setText(jTable1.getValueAt(selectedRow, 3).toString());
+        EditFormUI.tfPrice.setText(jTable1.getValueAt(selectedRow, 4).toString());
+
+
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
@@ -461,54 +462,69 @@ public class IMSUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPhoneNoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnCustomerEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerEditActionPerformed
+        if (tfCustomerNo.getText().trim().isEmpty() || tfName.getText().trim().isEmpty() || tfPhoneNo.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog((null), "Customer no., Name, and Phone no. should not be empty.");
+            return;
+        }
+        int selectedRow = jTable3.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+
+        model.setValueAt(tfCustomerNo.getText(), selectedRow, 0);
+        model.setValueAt(tfName.getText(), selectedRow, 1);
+        model.setValueAt(tfPhoneNo.getText(), selectedRow, 2);
+        model.setValueAt(tfEmail.getText(), selectedRow, 3);
+    }//GEN-LAST:event_btnCustomerEditActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        int selectedRow = jTable3.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+        model.setValueAt("", selectedRow, 0);
+        model.setValueAt("", selectedRow, 1);
+        model.setValueAt("", selectedRow, 2);
+        model.setValueAt("", selectedRow, 3);
+        tfCustomerNo.setText(jTable3.getValueAt(selectedRow, 0).toString());
+        tfName.setText(jTable3.getValueAt(selectedRow, 1).toString());
+        tfEmail.setText(jTable3.getValueAt(selectedRow, 2).toString());
+        tfPhoneNo.setText(jTable3.getValueAt(selectedRow, 3).toString());
+
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        if (jTable3.getRowCount() == 0)
-        {
+        if (tfCustomerNo.getText().trim().isEmpty() || tfName.getText().trim().isEmpty() || tfPhoneNo.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog((null), "Customer no., Name, and Phone no. should not be empty.");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+        Object[] obj = new Object[4];
+        obj[0] = tfCustomerNo.getText();
+        obj[1] = tfName.getText();
+        obj[2] = tfPhoneNo.getText();
+        obj[3] = tfEmail.getText();
+        model.addRow(obj);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        int selectedRow = jTable3.getSelectedRow();
+        
+        tfCustomerNo.setText(jTable3.getValueAt(selectedRow, 0).toString());
+        tfName.setText(jTable3.getValueAt(selectedRow, 1).toString());
+        tfEmail.setText(jTable3.getValueAt(selectedRow, 2).toString());
+        tfPhoneNo.setText(jTable3.getValueAt(selectedRow, 3).toString());
+
+
+    }//GEN-LAST:event_jTable3MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if (jTable3.getRowCount() == 0) {
             JOptionPane.showMessageDialog(null, "Table is empty.");
             return;
         }
         DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
         int selectedRow = jTable3.getSelectedRow();
         model.removeRow(selectedRow);
-        
-        
-    }//GEN-LAST:event_btnClearActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        if (tfCustomerNo.getText().trim().isEmpty() || tfName.getText().trim().isEmpty() || tfPhoneNo.getText().trim().isEmpty())
-                JOptionPane.showMessageDialog((null), "Customer no., Name, and Phone no. should not be empty.");
-       DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
-       Object[] obj = new Object[4];
-       obj[0] = tfCustomerNo.getText();
-       obj[1] = tfName.getText();
-       obj[2] = tfPhoneNo.getText();
-       obj[3] = tfEmail.getText();
-       model.addRow(obj);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
-        // TODO add your handling code here:
-        int selectedRow = jTable3.getSelectedRow();
-        
-        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
-        tfCustomerNo.setText(jTable3.getValueAt(selectedRow, 0).toString());
-        tfName.setText(jTable3.getValueAt(selectedRow, 1).toString());
-        tfEmail.setText(jTable3.getValueAt(selectedRow, 2).toString());
-        tfPhoneNo.setText(jTable3.getValueAt(selectedRow, 3).toString());
-        Object[] obj = new Object[4];
-        obj[0] = tfCustomerNo.getText();
-        obj[1] = tfName.getText();
-        obj[2] = tfPhoneNo.getText();
-        obj[3] = tfEmail.getText();
-        
-        
-    }//GEN-LAST:event_jTable3MouseClicked
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -542,17 +558,16 @@ public class IMSUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new IMSUI().setVisible(true);
-
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnCustomerEdit;
     public static javax.swing.JButton btnEdit;
     public static javax.swing.JButton btnEdit1;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel2;
