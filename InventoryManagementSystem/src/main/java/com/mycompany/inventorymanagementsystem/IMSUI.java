@@ -22,6 +22,64 @@ public class IMSUI extends javax.swing.JFrame {
         addRowToData();
     }
 
+    class Product {
+
+        public String id, name, description;
+        public int price, quantity;
+
+        public Product() {
+        }
+
+        public Product(String id, String name, String description, int quantity, int price) {
+            this.id = id;
+            this.name = name;
+            this.description = description;
+            this.quantity = quantity;
+            this.price = price;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public int getQuantity() {
+            return quantity;
+        }
+
+        public int getPrice() {
+            return price;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public void setQuantity(int quantity) {
+            this.quantity = quantity;
+        }
+
+        public void setPrice(int price) {
+            this.price = price;
+        }
+
+    }
+
     class Customer {
 
         String customerNO, name, phoneNo, eMail;
@@ -98,7 +156,7 @@ public class IMSUI extends javax.swing.JFrame {
         tfSearch = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
-        btnEdit1 = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -172,8 +230,13 @@ public class IMSUI extends javax.swing.JFrame {
             }
         });
 
-        btnEdit1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        btnEdit1.setText("Logout");
+        btnLogout.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,7 +244,7 @@ public class IMSUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addComponent(btnEdit1)
+                .addComponent(btnLogout)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEdit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -201,7 +264,7 @@ public class IMSUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnEdit)
-                        .addComponent(btnEdit1))
+                        .addComponent(btnLogout))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnSearch)
@@ -565,6 +628,15 @@ public class IMSUI extends javax.swing.JFrame {
         model.removeRow(selectedRow);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        int confirmDialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to logout?", null, JOptionPane.YES_NO_OPTION);
+        if (confirmDialog == JOptionPane.YES_OPTION) {
+            this.hide();
+            new InventoryManagementSystem();
+        }
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -605,7 +677,7 @@ public class IMSUI extends javax.swing.JFrame {
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnCustomerEdit;
     public static javax.swing.JButton btnEdit;
-    public static javax.swing.JButton btnEdit1;
+    public static javax.swing.JButton btnLogout;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

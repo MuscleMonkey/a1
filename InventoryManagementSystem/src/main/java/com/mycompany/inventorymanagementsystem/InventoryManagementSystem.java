@@ -9,6 +9,10 @@ package com.mycompany.inventorymanagementsystem;
  * @author onad
  */
 public class InventoryManagementSystem {
+    public InventoryManagementSystem()
+    {
+        new LoginUI().show();
+    }
     public static void main(String[] args) {
         new LoginUI().show();
     }
