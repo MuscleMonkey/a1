@@ -22,14 +22,35 @@ public class IMSUI extends javax.swing.JFrame {
         addRowToData();
     }
 
+    class Customer {
+
+        String customerNO, name, phoneNo, eMail;
+
+        public Customer(String customerNO, String name, String phoneNo, String eMail) {
+            this.customerNO = customerNO;
+            this.name = name;
+            this.phoneNo = phoneNo;
+            this.eMail = eMail;
+        }
+
+    }
+
     public ArrayList listProduct() {
         ArrayList<Product> lista = new ArrayList<>();
         lista.add(new Product("100", "hotdog", "tender", 12, 20));
         lista.add(new Product("101", "egg", "small", 9, 20));
         lista.add(new Product("102", "footlong", " tender", 15, 20));
         lista.add(new Product("103", "brake", "barakoII", 10, 20));
-//        lista.add(new Product("egg", 19, 20));
-//        lista.add(new Product("Karne Norte", 25, 20));
+        lista.add(new Product("104", "egg", "small", 19, 20));
+        lista.add(new Product("104", "Karne Norte", "medium", 25, 20));
+        return lista;
+    }
+
+    public ArrayList listProduct1() {
+        ArrayList<Customer> lista = new ArrayList<>();
+        lista.add(new Customer("201", "Alexander", "09123456", "ar@email.com"));
+        lista.add(new Customer("202", "Black", "09213456", "bk@email.com"));
+        lista.add(new Customer("203", "Dalton", "09312456", "dn@email.com"));
         return lista;
     }
 
@@ -48,6 +69,16 @@ public class IMSUI extends javax.swing.JFrame {
 
             model.addRow(rowdata);
             model2.addRow(rowdata);
+        }
+        DefaultTableModel customerModel = (DefaultTableModel) jTable3.getModel();
+        ArrayList<Customer> list1 = listProduct1();
+        Object rowdata1[] = new Object[4];
+        for (int i = 0; i < list1.size(); i++) {
+            rowdata1[0] = list1.get(i).customerNO;
+            rowdata1[1] = list1.get(i).name;
+            rowdata1[2] = list1.get(i).phoneNo;
+            rowdata1[3] = list1.get(i).eMail;
+            customerModel.addRow(rowdata1);
         }
     }
 
@@ -231,7 +262,15 @@ public class IMSUI extends javax.swing.JFrame {
             new String [] {
                 "Customer no.", "Name", "Phone no.", "E-mail"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable3MouseClicked(evt);
@@ -507,7 +546,7 @@ public class IMSUI extends javax.swing.JFrame {
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
         int selectedRow = jTable3.getSelectedRow();
-        
+
         tfCustomerNo.setText(jTable3.getValueAt(selectedRow, 0).toString());
         tfName.setText(jTable3.getValueAt(selectedRow, 1).toString());
         tfEmail.setText(jTable3.getValueAt(selectedRow, 2).toString());

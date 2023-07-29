@@ -253,6 +253,11 @@ public class EditFormUI extends javax.swing.JFrame {
 
     private void btnSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetActionPerformed
         // TODO add your handling code here:
+        if (IMSUI.jTable1.getSelectedRowCount() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "No row is selected");
+            return;
+        }
         DefaultTableModel model = (DefaultTableModel) IMSUI.jTable1.getModel();
         int selectedRow = IMSUI.jTable1.getSelectedRow();
         
@@ -266,7 +271,11 @@ public class EditFormUI extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-
+        if (tfDesc.getText().trim().isEmpty() && tfId.getText().trim().isEmpty() && tfName.getText().trim().isEmpty() && tfName.getText().trim().isEmpty() && tfPrice.getText().trim().isEmpty() && tfQty.getText().trim().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Fields should not be empty.");
+            return;
+        }
         DefaultTableModel model = (DefaultTableModel) IMSUI.jTable1.getModel();
         DefaultTableModel model2 = (DefaultTableModel) IMSUI.jTable2.getModel();
         Object[] obj = new Object[5];
