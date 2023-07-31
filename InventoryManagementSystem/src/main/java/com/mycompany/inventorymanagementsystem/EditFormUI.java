@@ -253,13 +253,13 @@ public class EditFormUI extends javax.swing.JFrame {
 
     private void btnSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetActionPerformed
         // TODO add your handling code here:
-        if (IMSUI.jTable1.getSelectedRowCount() == 0)
+        if (IMSUI.jTableInventory.getSelectedRowCount() == 0)
         {
             JOptionPane.showMessageDialog(null, "No row is selected");
             return;
         }
-        DefaultTableModel model = (DefaultTableModel) IMSUI.jTable1.getModel();
-        int selectedRow = IMSUI.jTable1.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) IMSUI.jTableInventory.getModel();
+        int selectedRow = IMSUI.jTableInventory.getSelectedRow();
         
        
         model.setValueAt(tfId.getText(), selectedRow,0);
@@ -276,8 +276,8 @@ public class EditFormUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Fields should not be empty.");
             return;
         }
-        DefaultTableModel model = (DefaultTableModel) IMSUI.jTable1.getModel();
-        DefaultTableModel model2 = (DefaultTableModel) IMSUI.jTable2.getModel();
+        DefaultTableModel model = (DefaultTableModel) IMSUI.jTableInventory.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) IMSUI.jTableOrderProduct.getModel();
         Object[] obj = new Object[5];
         obj[0] = tfId.getText();
         obj[1] = tfName.getText();
@@ -297,14 +297,14 @@ public class EditFormUI extends javax.swing.JFrame {
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) IMSUI.jTable1.getModel();
-        DefaultTableModel model2 = (DefaultTableModel) IMSUI.jTable2.getModel();
-        int selectedRow = IMSUI.jTable1.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) IMSUI.jTableInventory.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) IMSUI.jTableOrderProduct.getModel();
+        int selectedRow = IMSUI.jTableInventory.getSelectedRow();
         
-        if (IMSUI.jTable1.getSelectedRowCount() == 1) {
+        if (IMSUI.jTableInventory.getSelectedRowCount() == 1) {
             model.removeRow(selectedRow);
             model2.removeRow(selectedRow);
-        } else if (IMSUI.jTable1.getSelectedRowCount()== 0) {
+        } else if (IMSUI.jTableInventory.getSelectedRowCount()== 0) {
             JOptionPane.showMessageDialog(null, "No Row Is Selected");
         }
 

@@ -113,8 +113,8 @@ public class IMSUI extends javax.swing.JFrame {
     }
 
     public void addRowToData() {
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        DefaultTableModel model2 = (DefaultTableModel) jTable2.getModel();
+        DefaultTableModel model = (DefaultTableModel) jTableInventory.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) jTableOrderProduct.getModel();
 
         ArrayList<Product> list = listProduct();
         Object rowdata[] = new Object[5];
@@ -128,7 +128,9 @@ public class IMSUI extends javax.swing.JFrame {
             model.addRow(rowdata);
             model2.addRow(rowdata);
         }
-        DefaultTableModel customerModel = (DefaultTableModel) jTable3.getModel();
+        DefaultTableModel customerModel = (DefaultTableModel) jTableCustomer.getModel();
+        DefaultTableModel orderModel1 = (DefaultTableModel) jTableOrderCustomer.getModel();
+
         ArrayList<Customer> list1 = listProduct1();
         Object rowdata1[] = new Object[4];
         for (int i = 0; i < list1.size(); i++) {
@@ -137,6 +139,7 @@ public class IMSUI extends javax.swing.JFrame {
             rowdata1[2] = list1.get(i).phoneNo;
             rowdata1[3] = list1.get(i).eMail;
             customerModel.addRow(rowdata1);
+            orderModel1.addRow(rowdata1);
         }
     }
 
@@ -152,17 +155,22 @@ public class IMSUI extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableInventory = new javax.swing.JTable();
         tfSearch = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableOrderProduct = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTableOrder = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTableOrderCustomer = new javax.swing.JTable();
+        btnOrderAdd = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jTableCustomer = new javax.swing.JTable();
         tfCustomerNo = new javax.swing.JTextField();
         tfName = new javax.swing.JTextField();
         tfPhoneNo = new javax.swing.JTextField();
@@ -174,7 +182,7 @@ public class IMSUI extends javax.swing.JFrame {
         btnCustomerEdit = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnCustomerAdd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 255, 102));
@@ -183,12 +191,12 @@ public class IMSUI extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 255, 102));
         jPanel1.setForeground(new java.awt.Color(255, 204, 204));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableInventory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "id", "name", "desc", "qty", "price"
+                "id", "name", "desc", "stocks", "price"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -199,12 +207,12 @@ public class IMSUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableInventory.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                jTableInventoryMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableInventory);
 
         tfSearch.setColumns(12);
         tfSearch.setToolTipText("type product id...");
@@ -223,7 +231,7 @@ public class IMSUI extends javax.swing.JFrame {
         });
 
         btnEdit.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        btnEdit.setText("EDIT");
+        btnEdit.setText("Buttons");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
@@ -250,7 +258,7 @@ public class IMSUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -276,12 +284,12 @@ public class IMSUI extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Inventory", jPanel1);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableOrderProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "id", "name", "desc", "qty", "price"
+                "id", "name", "desc", "stocks", "price"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -292,12 +300,40 @@ public class IMSUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableOrderProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
+                jTableOrderProductMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jTableOrderProduct);
+
+        jTableOrder.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Contact", "Product", "Quantity", "Price"
+            }
+        ));
+        jScrollPane4.setViewportView(jTableOrder);
+
+        jTableOrderCustomer.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Customer no", "Name", "Mobile no", "Email"
+            }
+        ));
+        jScrollPane5.setViewportView(jTableOrderCustomer);
+
+        btnOrderAdd.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnOrderAdd.setText("Add");
+        btnOrderAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderAddActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -305,20 +341,35 @@ public class IMSUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(440, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(btnOrderAdd))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addComponent(btnOrderAdd)
+                .addContainerGap(223, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Order", jPanel2);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCustomer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -327,19 +378,20 @@ public class IMSUI extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableCustomer.getTableHeader().setReorderingAllowed(false);
+        jTableCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable3MouseClicked(evt);
+                jTableCustomerMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(jTableCustomer);
 
         tfCustomerNo.setColumns(12);
         tfCustomerNo.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -380,6 +432,7 @@ public class IMSUI extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel4.setText("E-mail");
 
+        btnCustomerEdit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnCustomerEdit.setText("edit");
         btnCustomerEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -387,6 +440,7 @@ public class IMSUI extends javax.swing.JFrame {
             }
         });
 
+        btnClear.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnClear.setText("clear");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -394,6 +448,7 @@ public class IMSUI extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton3.setText("remove");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -401,10 +456,11 @@ public class IMSUI extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("insert");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnCustomerAdd.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnCustomerAdd.setText("Add");
+        btnCustomerAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnCustomerAddActionPerformed(evt);
             }
         });
 
@@ -412,37 +468,48 @@ public class IMSUI extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLable1)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel4))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnClear)
-                        .addGap(28, 28, 28)
-                        .addComponent(jButton4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tfName)
-                    .addComponent(tfEmail)
-                    .addComponent(tfPhoneNo)
-                    .addComponent(tfCustomerNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(btnCustomerEdit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)))
+                        .addGap(189, 189, 189)
+                        .addComponent(tfEmail))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLable1)
+                                    .addComponent(jLabel2))
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addComponent(btnClear)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnCustomerAdd)
+                                    .addGap(10, 10, 10)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfPhoneNo)
+                            .addComponent(tfName)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfCustomerNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(btnCustomerEdit)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton3)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -452,24 +519,24 @@ public class IMSUI extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
-                        .addGap(57, 57, 57)
+                        .addGap(39, 39, 39)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(50, 50, 50)
+                            .addComponent(jLabel3)
+                            .addComponent(tfPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCustomerEdit)
-                            .addComponent(btnClear)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4)))
+                            .addComponent(jLabel4)
+                            .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(71, 71, 71)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCustomerEdit)
+                    .addComponent(btnClear)
+                    .addComponent(jButton3)
+                    .addComponent(btnCustomerAdd))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Customer", jPanel3);
@@ -478,11 +545,14 @@ public class IMSUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 927, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 927, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -523,7 +593,7 @@ public class IMSUI extends javax.swing.JFrame {
 
     private void tfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel model = (DefaultTableModel) jTableInventory.getModel();
         model.setRowCount(0);
         addRowToData();
     }//GEN-LAST:event_tfSearchActionPerformed
@@ -535,22 +605,22 @@ public class IMSUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnEditActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void jTableInventoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableInventoryMouseClicked
         // TODO add your handling code here:        
-        int selectedRow = jTable1.getSelectedRow();
-        EditFormUI.tfId.setText(jTable1.getValueAt(selectedRow, 0).toString());
-        EditFormUI.tfName.setText(jTable1.getValueAt(selectedRow, 1).toString());
-        EditFormUI.tfDesc.setText(jTable1.getValueAt(selectedRow, 2).toString());
-        EditFormUI.tfQty.setText(jTable1.getValueAt(selectedRow, 3).toString());
-        EditFormUI.tfPrice.setText(jTable1.getValueAt(selectedRow, 4).toString());
+        int selectedRow = jTableInventory.getSelectedRow();
+        EditFormUI.tfId.setText(jTableInventory.getValueAt(selectedRow, 0).toString());
+        EditFormUI.tfName.setText(jTableInventory.getValueAt(selectedRow, 1).toString());
+        EditFormUI.tfDesc.setText(jTableInventory.getValueAt(selectedRow, 2).toString());
+        EditFormUI.tfQty.setText(jTableInventory.getValueAt(selectedRow, 3).toString());
+        EditFormUI.tfPrice.setText(jTableInventory.getValueAt(selectedRow, 4).toString());
 
 
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_jTableInventoryMouseClicked
 
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+    private void jTableOrderProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableOrderProductMouseClicked
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_jTable2MouseClicked
+    }//GEN-LAST:event_jTableOrderProductMouseClicked
 
     private void tfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNameActionPerformed
         // TODO add your handling code here:
@@ -569,62 +639,69 @@ public class IMSUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog((null), "Customer no., Name, and Phone no. should not be empty.");
             return;
         }
-        int selectedRow = jTable3.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+        int selectedRow = jTableCustomer.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTableCustomer.getModel();
 
         model.setValueAt(tfCustomerNo.getText(), selectedRow, 0);
         model.setValueAt(tfName.getText(), selectedRow, 1);
-        model.setValueAt(tfPhoneNo.getText(), selectedRow, 2);
-        model.setValueAt(tfEmail.getText(), selectedRow, 3);
+        model.setValueAt(tfEmail.getText(), selectedRow, 2);
+        model.setValueAt(tfPhoneNo.getText(), selectedRow, 3);
     }//GEN-LAST:event_btnCustomerEditActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        int selectedRow = jTable3.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+        int selectedRow = jTableCustomer.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTableCustomer.getModel();
+        DefaultTableModel model1 = (DefaultTableModel) jTableOrderCustomer.getModel();
         model.setValueAt("", selectedRow, 0);
         model.setValueAt("", selectedRow, 1);
         model.setValueAt("", selectedRow, 2);
         model.setValueAt("", selectedRow, 3);
-        tfCustomerNo.setText(jTable3.getValueAt(selectedRow, 0).toString());
-        tfName.setText(jTable3.getValueAt(selectedRow, 1).toString());
-        tfEmail.setText(jTable3.getValueAt(selectedRow, 2).toString());
-        tfPhoneNo.setText(jTable3.getValueAt(selectedRow, 3).toString());
+        tfCustomerNo.setText(jTableCustomer.getValueAt(selectedRow, 0).toString());
+        tfName.setText(jTableCustomer.getValueAt(selectedRow, 1).toString());
+        tfEmail.setText(jTableCustomer.getValueAt(selectedRow, 2).toString());
+        tfPhoneNo.setText(jTableCustomer.getValueAt(selectedRow, 3).toString());
+        model1.setValueAt("", selectedRow, 0);
+        model1.setValueAt("", selectedRow, 1);
+        model1.setValueAt("", selectedRow, 2);
+        model1.setValueAt("", selectedRow, 3);
 
     }//GEN-LAST:event_btnClearActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnCustomerAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerAddActionPerformed
         // TODO add your handling code here:
         if (tfCustomerNo.getText().trim().isEmpty() || tfName.getText().trim().isEmpty() || tfPhoneNo.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog((null), "Customer no., Name, and Phone no. should not be empty.");
             return;
         }
-        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+        DefaultTableModel model = (DefaultTableModel) jTableCustomer.getModel();
+        DefaultTableModel model1 = (DefaultTableModel) jTableOrderCustomer.getModel();
         Object[] obj = new Object[4];
         obj[0] = tfCustomerNo.getText();
         obj[1] = tfName.getText();
         obj[2] = tfPhoneNo.getText();
         obj[3] = tfEmail.getText();
+        model1.addRow(obj);
         model.addRow(obj);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnCustomerAddActionPerformed
 
-    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
-        int selectedRow = jTable3.getSelectedRow();
+    private void jTableCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCustomerMouseClicked
+        int selectedRow = jTableCustomer.getSelectedRow();
 
-        tfCustomerNo.setText(jTable3.getValueAt(selectedRow, 0).toString());
-        tfName.setText(jTable3.getValueAt(selectedRow, 1).toString());
-        tfEmail.setText(jTable3.getValueAt(selectedRow, 2).toString());
-        tfPhoneNo.setText(jTable3.getValueAt(selectedRow, 3).toString());
+        tfCustomerNo.setText(jTableCustomer.getValueAt(selectedRow, 0).toString());
+        tfName.setText(jTableCustomer.getValueAt(selectedRow, 1).toString());
+        tfEmail.setText(jTableCustomer.getValueAt(selectedRow, 2).toString());
+        tfPhoneNo.setText(jTableCustomer.getValueAt(selectedRow, 3).toString());
 
 
-    }//GEN-LAST:event_jTable3MouseClicked
+    }//GEN-LAST:event_jTableCustomerMouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if (jTable3.getRowCount() == 0) {
+        if (jTableCustomer.getRowCount() == 0) {
             JOptionPane.showMessageDialog(null, "Table is empty.");
             return;
         }
-        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
-        int selectedRow = jTable3.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTableCustomer.getModel();
+        int selectedRow = jTableCustomer.getSelectedRow();
         model.removeRow(selectedRow);
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -636,6 +713,38 @@ public class IMSUI extends javax.swing.JFrame {
             new InventoryManagementSystem();
         }
     }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnOrderAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderAddActionPerformed
+        // TODO add your handling code here:
+        if (jTableOrderProduct.getSelectedRowCount() == 1 && jTableOrderCustomer.getSelectedRowCount() == 1) {
+            DefaultTableModel model1 = (DefaultTableModel) jTableOrderProduct.getModel();//product
+            DefaultTableModel model2 = (DefaultTableModel) jTableOrder.getModel();
+            DefaultTableModel model3 = (DefaultTableModel) jTableOrderCustomer.getModel();//customer
+            DefaultTableModel model4 = (DefaultTableModel) jTableInventory.getModel();//inventor table
+            int productSelectedRow = jTableOrderProduct.getSelectedRow();
+            int customerSelectedRow = jTableOrderCustomer.getSelectedRow();
+            int quantity = Integer.parseInt(JOptionPane.showInputDialog("How many? "));
+            if (quantity > (int) model1.getValueAt(productSelectedRow, 3)) {
+                JOptionPane.showMessageDialog(null, "Not Enough Stocks!");
+                return;
+            } else {
+                int stocksLeft = (int) model1.getValueAt(productSelectedRow, 3) - quantity;
+                model1.setValueAt(stocksLeft, productSelectedRow, 3);
+                model4.setValueAt(stocksLeft, productSelectedRow, 3);
+            }
+
+            Object[] rowData3 = new Object[5];
+            rowData3[0] = model3.getValueAt(customerSelectedRow, 1);
+            rowData3[1] = model3.getValueAt(customerSelectedRow, 2);
+            rowData3[2] = model1.getValueAt(productSelectedRow, 1);
+            rowData3[3] = quantity;
+            rowData3[4] = (int) model1.getValueAt(productSelectedRow, 4) * quantity;
+            model2.addRow(rowData3);
+
+        } else {
+
+        }
+    }//GEN-LAST:event_btnOrderAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -675,12 +784,13 @@ public class IMSUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnCustomerAdd;
     private javax.swing.JButton btnCustomerEdit;
     public static javax.swing.JButton btnEdit;
     public static javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnOrderAdd;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -691,10 +801,14 @@ public class IMSUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane2;
-    public static javax.swing.JTable jTable1;
-    public static javax.swing.JTable jTable2;
-    public static javax.swing.JTable jTable3;
+    public static javax.swing.JTable jTableCustomer;
+    public static javax.swing.JTable jTableInventory;
+    private javax.swing.JTable jTableOrder;
+    private javax.swing.JTable jTableOrderCustomer;
+    public static javax.swing.JTable jTableOrderProduct;
     private javax.swing.JTextField tfCustomerNo;
     private javax.swing.JTextField tfEmail;
     private javax.swing.JTextField tfName;
