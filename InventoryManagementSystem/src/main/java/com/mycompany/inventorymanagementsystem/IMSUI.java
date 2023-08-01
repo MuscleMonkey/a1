@@ -4,6 +4,7 @@
  */
 package com.mycompany.inventorymanagementsystem;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -100,7 +101,8 @@ public class IMSUI extends javax.swing.JFrame {
         lista.add(new Product("102", "footlong", " tender", 15, 20));
         lista.add(new Product("103", "brake", "barakoII", 10, 20));
         lista.add(new Product("104", "egg", "small", 19, 20));
-        lista.add(new Product("104", "Karne Norte", "medium", 25, 20));
+        lista.add(new Product("105", "Karne Norte", "medium", 25, 20));
+        lista.add(new Product("106", "egg", "large", 11, 20));
         return lista;
     }
 
@@ -168,6 +170,8 @@ public class IMSUI extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jTableOrderCustomer = new javax.swing.JTable();
         btnOrderAdd = new javax.swing.JButton();
+        btnOrderRemove = new javax.swing.JButton();
+        btnOrderMark = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableCustomer = new javax.swing.JTable();
@@ -199,9 +203,16 @@ public class IMSUI extends javax.swing.JFrame {
                 "id", "name", "desc", "stocks", "price"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -215,7 +226,7 @@ public class IMSUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTableInventory);
 
         tfSearch.setColumns(12);
-        tfSearch.setToolTipText("type product id...");
+        tfSearch.setToolTipText("type product name...");
         tfSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSearchActionPerformed(evt);
@@ -240,6 +251,7 @@ public class IMSUI extends javax.swing.JFrame {
 
         btnLogout.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnLogout.setText("Logout");
+        btnLogout.setAutoscrolls(true);
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
@@ -251,35 +263,35 @@ public class IMSUI extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(29, 29, 29)
                 .addComponent(btnLogout)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(34, 34, 34)
                 .addComponent(btnEdit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(98, 98, 98)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
-                        .addContainerGap())
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnSearch))))
+                        .addComponent(btnSearch)))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnEdit)
-                        .addComponent(btnLogout))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSearch)
-                            .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLogout)
+                    .addComponent(btnEdit))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Inventory", jPanel1);
@@ -292,9 +304,16 @@ public class IMSUI extends javax.swing.JFrame {
                 "id", "name", "desc", "stocks", "price"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -314,7 +333,22 @@ public class IMSUI extends javax.swing.JFrame {
             new String [] {
                 "Name", "Contact", "Product", "Quantity", "Price"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane4.setViewportView(jTableOrder);
 
         jTableOrderCustomer.setModel(new javax.swing.table.DefaultTableModel(
@@ -335,6 +369,22 @@ public class IMSUI extends javax.swing.JFrame {
             }
         });
 
+        btnOrderRemove.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnOrderRemove.setText("Remove");
+        btnOrderRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderRemoveActionPerformed(evt);
+            }
+        });
+
+        btnOrderMark.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnOrderMark.setText("Mark");
+        btnOrderMark.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderMarkActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -347,11 +397,15 @@ public class IMSUI extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addComponent(btnOrderAdd))
+                        .addComponent(btnOrderAdd)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnOrderRemove)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnOrderMark))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,8 +417,12 @@ public class IMSUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75)
-                .addComponent(btnOrderAdd)
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnOrderAdd)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnOrderRemove)
+                        .addComponent(btnOrderMark)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Order", jPanel2);
@@ -433,7 +491,7 @@ public class IMSUI extends javax.swing.JFrame {
         jLabel4.setText("E-mail");
 
         btnCustomerEdit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnCustomerEdit.setText("edit");
+        btnCustomerEdit.setText("Edit");
         btnCustomerEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCustomerEditActionPerformed(evt);
@@ -441,7 +499,7 @@ public class IMSUI extends javax.swing.JFrame {
         });
 
         btnClear.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnClear.setText("clear");
+        btnClear.setText("Clear");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
@@ -449,7 +507,7 @@ public class IMSUI extends javax.swing.JFrame {
         });
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton3.setText("remove");
+        jButton3.setText("Remove");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -469,47 +527,39 @@ public class IMSUI extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(189, 189, 189)
-                        .addComponent(tfEmail))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLable1)
-                                    .addComponent(jLabel2))
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(btnClear)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnCustomerAdd)
-                                    .addGap(10, 10, 10)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3))))
+                            .addComponent(jLable1)
+                            .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tfPhoneNo, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(tfName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(tfCustomerNo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(88, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfPhoneNo)
-                            .addComponent(tfName)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfCustomerNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(btnCustomerEdit)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton3)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                                .addComponent(btnClear)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCustomerAdd)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCustomerEdit)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -523,20 +573,20 @@ public class IMSUI extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(tfPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(40, 40, 40)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(71, 71, 71)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCustomerEdit)
                     .addComponent(btnClear)
                     .addComponent(jButton3)
                     .addComponent(btnCustomerAdd))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Customer", jPanel3);
@@ -547,14 +597,13 @@ public class IMSUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 927, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 903, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -562,33 +611,33 @@ public class IMSUI extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-//        int tableRowCount = model.getRowCount();
-//        int tableColumnCount = model.getColumnCount();
-//        Object[][] obj2 = new Object[tableRowCount][tableColumnCount];
-//        int cnt = 1;
-//        int i;
-//
-//        for (i = 0; i < tableRowCount; i++) {
-//
-//            if (model.getValueAt(i, 0).equals(tfSearch)) {
-//                obj2[i][0] = model.getValueAt(i, 0);
-//                obj2[i][1] = model.getValueAt(i, 1);
-//                obj2[i][2] = model.getValueAt(i, 2);
-//                obj2[i][3] = model.getValueAt(i, 3);
-//                cnt++;
+//        DefaultTableModel model = (DefaultTableModel) jTableInventory.getModel();
+//        int rowCount = jTableInventory.getRowCount();
+//        int itemCount = 0;
+//        
+//        Object[][] list = new Object[itemCount][itemCount];
+//        String current;
+//        for (int i = 0; i < rowCount; i++)
+//        {
+//            current = model.getValueAt(i, 1).toString();
+//            if (current.equals(tfSearch.getText()))
+//            {
+//                itemCount++;
+//                list[i][0] = model.getValueAt(i,0);
+//                list[i][1] = model.getValueAt(i,1);
+//                list[i][2] = model.getValueAt(i,2);
+//                list[i][3] = model.getValueAt(i,3);
+//                list[i][4] = model.getValueAt(i,4);
 //            }
 //        }
-//        Object[] obj = new Object[4];
-//        System.out.println(cnt);
-//        model.setRowCount(cnt);
-//        for (i = 0; i < cnt; i++) {
-//            obj[0] = obj2[i][0];
-//            obj[1] = obj2[i][0];
-//            obj[2] = obj2[i][0];
-//            obj[3] = obj2[i][0];
-//            model.addRow(obj);
+//        Object[] addRowData = new Object[];
+//        
+//        for (int i = 0; i < itemCount; i++)
+//        {
+//            addRowData[0] = list
 //        }
+//        model.setRowCount(0);
+//        model.addRow(list);
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void tfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchActionPerformed
@@ -707,6 +756,7 @@ public class IMSUI extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
+        
         int confirmDialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to logout?", null, JOptionPane.YES_NO_OPTION);
         if (confirmDialog == JOptionPane.YES_OPTION) {
             this.hide();
@@ -724,27 +774,47 @@ public class IMSUI extends javax.swing.JFrame {
             int productSelectedRow = jTableOrderProduct.getSelectedRow();
             int customerSelectedRow = jTableOrderCustomer.getSelectedRow();
             int quantity = Integer.parseInt(JOptionPane.showInputDialog("How many? "));
-            if (quantity > (int) model1.getValueAt(productSelectedRow, 3)) {
+            try {
+                model1.getValueAt(productSelectedRow,3);
+                int qtfTable = Integer.parseInt(model4.getValueAt(productSelectedRow, 3).toString());
+                System.out.print(("check"));
+                if (quantity > qtfTable) {
                 JOptionPane.showMessageDialog(null, "Not Enough Stocks!");
                 return;
             } else {
-                int stocksLeft = (int) model1.getValueAt(productSelectedRow, 3) - quantity;
+                int stockString = Integer.parseInt(model1.getValueAt(productSelectedRow, 3).toString());
+                Integer stocksLeft =  stockString - quantity;
                 model1.setValueAt(stocksLeft, productSelectedRow, 3);
                 model4.setValueAt(stocksLeft, productSelectedRow, 3);
+            }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
             }
 
             Object[] rowData3 = new Object[5];
             rowData3[0] = model3.getValueAt(customerSelectedRow, 1);
             rowData3[1] = model3.getValueAt(customerSelectedRow, 2);
             rowData3[2] = model1.getValueAt(productSelectedRow, 1);
-            rowData3[3] = quantity;
-            rowData3[4] = (int) model1.getValueAt(productSelectedRow, 4) * quantity;
+            rowData3[3] = (Object) quantity;
+            rowData3[4] = (Object) (Integer.parseInt(model1.getValueAt(productSelectedRow, 4).toString()) * quantity);
             model2.addRow(rowData3);
 
         } else {
 
         }
     }//GEN-LAST:event_btnOrderAddActionPerformed
+
+    private void btnOrderRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderRemoveActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jTableOrder.getModel();
+        if (jTableOrder.getSelectedRowCount() == 1) {
+            model.removeRow(jTableOrder.getSelectedRow());
+        }
+    }//GEN-LAST:event_btnOrderRemoveActionPerformed
+
+    private void btnOrderMarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderMarkActionPerformed
+        // TODO add your handling code here:        
+    }//GEN-LAST:event_btnOrderMarkActionPerformed
 
     /**
      * @param args the command line arguments
@@ -789,6 +859,8 @@ public class IMSUI extends javax.swing.JFrame {
     public static javax.swing.JButton btnEdit;
     public static javax.swing.JButton btnLogout;
     private javax.swing.JButton btnOrderAdd;
+    private javax.swing.JButton btnOrderMark;
+    private javax.swing.JButton btnOrderRemove;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
