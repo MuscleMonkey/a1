@@ -611,33 +611,45 @@ public class IMSUI extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-//        DefaultTableModel model = (DefaultTableModel) jTableInventory.getModel();
-//        int rowCount = jTableInventory.getRowCount();
-//        int itemCount = 0;
-//        
-//        Object[][] list = new Object[itemCount][itemCount];
-//        String current;
-//        for (int i = 0; i < rowCount; i++)
-//        {
-//            current = model.getValueAt(i, 1).toString();
-//            if (current.equals(tfSearch.getText()))
-//            {
-//                itemCount++;
-//                list[i][0] = model.getValueAt(i,0);
-//                list[i][1] = model.getValueAt(i,1);
-//                list[i][2] = model.getValueAt(i,2);
-//                list[i][3] = model.getValueAt(i,3);
-//                list[i][4] = model.getValueAt(i,4);
-//            }
-//        }
-//        Object[] addRowData = new Object[];
-//        
-//        for (int i = 0; i < itemCount; i++)
-//        {
-//            addRowData[0] = list
-//        }
-//        model.setRowCount(0);
-//        model.addRow(list);
+        DefaultTableModel model = (DefaultTableModel) jTableInventory.getModel();
+        int rowCount = jTableInventory.getRowCount();
+        int itemCount = 0;
+        String current;
+        Object[][] list;
+        for (int i = 0; i < rowCount; i++)
+        {
+            current = model.getValueAt(i, 1).toString();
+            if (current.equals(tfSearch.getText()))
+            {
+                itemCount++;
+            }
+        }
+        if (itemCount == 0)
+               return;
+        list = new Object[itemCount][5];
+        for (int i = 0; i < itemCount; i++)
+        {
+            current = model.getValueAt(i, 1).toString();
+            if (current.equals(tfSearch.getText()))
+            {
+                list[i][0] = model.getValueAt(i, 0);
+                list[i][1] = model.getValueAt(i, 1);
+                list[i][2] = model.getValueAt(i, 2);
+                list[i][3] = model.getValueAt(i, 3);
+                list[i][4] = model.getValueAt(i, 4);
+            }
+        }
+        Object[] addRowData = new Object[5];
+        model.setRowCount(0);
+        for ( int i = 0; i < itemCount; i++)
+        {
+            addRowData[0] = list[i][0];
+            addRowData[1] = list[i][1];
+            addRowData[2] = list[i][2];
+            addRowData[3] = list[i][3];
+            addRowData[4] = list[i][4];
+            model.addRow(addRowData);
+        }
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void tfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchActionPerformed
