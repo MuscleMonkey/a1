@@ -7,7 +7,9 @@ package com.mycompany.inventorymanagementsystem;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -153,48 +155,75 @@ public class IMSUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        jPanel9 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableInventory = new javax.swing.JTable();
-        tfSearch = new javax.swing.JTextField();
-        btnSearch = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
         btnEdit = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        tfSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableCustomer = new javax.swing.JTable();
+        jPanel8 = new javax.swing.JPanel();
+        jLable1 = new javax.swing.JLabel();
+        tfCustomerNo = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        tfName = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        tfPhoneNo = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        tfEmail = new javax.swing.JTextField();
+        btnClear = new javax.swing.JButton();
+        btnCustomerEdit = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        btnCustomerAdd = new javax.swing.JButton();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        btnOrderAdd = new javax.swing.JButton();
+        btnOrderMark = new javax.swing.JButton();
+        btnOrderRemove = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableOrderProduct = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTableOrder = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTableOrderCustomer = new javax.swing.JTable();
-        btnOrderAdd = new javax.swing.JButton();
-        btnOrderRemove = new javax.swing.JButton();
-        btnOrderMark = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTableCustomer = new javax.swing.JTable();
-        tfCustomerNo = new javax.swing.JTextField();
-        tfName = new javax.swing.JTextField();
-        tfPhoneNo = new javax.swing.JTextField();
-        tfEmail = new javax.swing.JTextField();
-        jLable1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        btnCustomerEdit = new javax.swing.JButton();
-        btnClear = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        btnCustomerAdd = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 255, 102));
         setLocationByPlatform(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 102));
-        jPanel1.setForeground(new java.awt.Color(255, 204, 204));
+        jTabbedPane2.setPreferredSize(new java.awt.Dimension(1000, 400));
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        jTableInventory.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jTableInventory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -203,16 +232,9 @@ public class IMSUI extends javax.swing.JFrame {
                 "id", "name", "desc", "stocks", "price"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class
-            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -225,21 +247,12 @@ public class IMSUI extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableInventory);
 
-        tfSearch.setColumns(12);
-        tfSearch.setToolTipText("type product name...");
-        tfSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfSearchActionPerformed(evt);
-            }
-        });
-
-        btnSearch.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        btnSearch.setText("SEARCH");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanel1.add(jScrollPane1, gridBagConstraints);
 
         btnEdit.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnEdit.setText("Buttons");
@@ -248,6 +261,7 @@ public class IMSUI extends javax.swing.JFrame {
                 btnEditActionPerformed(evt);
             }
         });
+        jPanel4.add(btnEdit);
 
         btnLogout.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnLogout.setText("Logout");
@@ -257,176 +271,57 @@ public class IMSUI extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
+        jPanel4.add(btnLogout);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(btnLogout)
-                .addGap(34, 34, 34)
-                .addComponent(btnEdit)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSearch)))
-                .addContainerGap(99, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogout)
-                    .addComponent(btnEdit))
-                .addContainerGap(88, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        jPanel1.add(jPanel4, gridBagConstraints);
+
+        tfSearch.setColumns(12);
+        tfSearch.setToolTipText("type product name...");
+        tfSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfSearchActionPerformed(evt);
+            }
+        });
+        tfSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfSearchKeyPressed(evt);
+            }
+        });
+        jPanel5.add(tfSearch);
+
+        btnSearch.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnSearch.setText("SEARCH");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnSearch);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.RELATIVE;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        jPanel1.add(jPanel5, gridBagConstraints);
+
+        jLabel5.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
+        jLabel5.setText("Inventory");
+        jPanel11.add(jLabel5);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.RELATIVE;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        jPanel1.add(jPanel11, gridBagConstraints);
 
         jTabbedPane2.addTab("Inventory", jPanel1);
 
-        jTableOrderProduct.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        jPanel3.setLayout(new java.awt.BorderLayout());
 
-            },
-            new String [] {
-                "id", "name", "desc", "stocks", "price"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTableOrderProduct.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableOrderProductMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jTableOrderProduct);
-
-        jTableOrder.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Name", "Contact", "Product", "Quantity", "Price"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane4.setViewportView(jTableOrder);
-
-        jTableOrderCustomer.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Customer no", "Name", "Mobile no", "Email"
-            }
-        ));
-        jScrollPane5.setViewportView(jTableOrderCustomer);
-
-        btnOrderAdd.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnOrderAdd.setText("Add");
-        btnOrderAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderAddActionPerformed(evt);
-            }
-        });
-
-        btnOrderRemove.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        btnOrderRemove.setText("Remove");
-        btnOrderRemove.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderRemoveActionPerformed(evt);
-            }
-        });
-
-        btnOrderMark.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        btnOrderMark.setText("Mark");
-        btnOrderMark.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderMarkActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(btnOrderAdd)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnOrderRemove)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnOrderMark))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnOrderAdd)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnOrderRemove)
-                        .addComponent(btnOrderMark)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane2.addTab("Order", jPanel2);
-
+        jTableCustomer.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jTableCustomer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -443,6 +338,7 @@ public class IMSUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableCustomer.setCellSelectionEnabled(true);
         jTableCustomer.getTableHeader().setReorderingAllowed(false);
         jTableCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -451,8 +347,21 @@ public class IMSUI extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTableCustomer);
 
+        jPanel3.add(jScrollPane3, java.awt.BorderLayout.CENTER);
+
+        jPanel8.setLayout(new java.awt.GridLayout(6, 2, 10, 10));
+
+        jLable1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLable1.setText("Customer no.");
+        jPanel8.add(jLable1);
+
         tfCustomerNo.setColumns(12);
         tfCustomerNo.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jPanel8.add(tfCustomerNo);
+
+        jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel2.setText("Name");
+        jPanel8.add(jLabel2);
 
         tfName.setColumns(12);
         tfName.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -461,6 +370,11 @@ public class IMSUI extends javax.swing.JFrame {
                 tfNameActionPerformed(evt);
             }
         });
+        jPanel8.add(tfName);
+
+        jLabel3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel3.setText("Phone no.");
+        jPanel8.add(jLabel3);
 
         tfPhoneNo.setColumns(12);
         tfPhoneNo.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -469,6 +383,11 @@ public class IMSUI extends javax.swing.JFrame {
                 tfPhoneNoActionPerformed(evt);
             }
         });
+        jPanel8.add(tfPhoneNo);
+
+        jLabel4.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel4.setText("E-mail");
+        jPanel8.add(jLabel4);
 
         tfEmail.setColumns(12);
         tfEmail.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -477,26 +396,7 @@ public class IMSUI extends javax.swing.JFrame {
                 tfEmailActionPerformed(evt);
             }
         });
-
-        jLable1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLable1.setText("Customer no.");
-
-        jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel2.setText("Name");
-
-        jLabel3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel3.setText("Phone no.");
-
-        jLabel4.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel4.setText("E-mail");
-
-        btnCustomerEdit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnCustomerEdit.setText("Edit");
-        btnCustomerEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCustomerEditActionPerformed(evt);
-            }
-        });
+        jPanel8.add(tfEmail);
 
         btnClear.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnClear.setText("Clear");
@@ -505,6 +405,16 @@ public class IMSUI extends javax.swing.JFrame {
                 btnClearActionPerformed(evt);
             }
         });
+        jPanel8.add(btnClear);
+
+        btnCustomerEdit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnCustomerEdit.setText("Edit");
+        btnCustomerEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCustomerEditActionPerformed(evt);
+            }
+        });
+        jPanel8.add(btnCustomerEdit);
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton3.setText("Remove");
@@ -513,6 +423,7 @@ public class IMSUI extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel8.add(jButton3);
 
         btnCustomerAdd.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnCustomerAdd.setText("Add");
@@ -521,90 +432,155 @@ public class IMSUI extends javax.swing.JFrame {
                 btnCustomerAddActionPerformed(evt);
             }
         });
+        jPanel8.add(btnCustomerAdd);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLable1)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(tfPhoneNo, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                            .addComponent(tfName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(tfCustomerNo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(88, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(btnClear)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCustomerAdd)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCustomerEdit)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfCustomerNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLable1))
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(tfPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCustomerEdit)
-                    .addComponent(btnClear)
-                    .addComponent(jButton3)
-                    .addComponent(btnCustomerAdd))
-                .addContainerGap(88, Short.MAX_VALUE))
-        );
+        jPanel3.add(jPanel8, java.awt.BorderLayout.WEST);
+
+        jLabel6.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
+        jLabel6.setText("Customer");
+        jPanel12.add(jLabel6);
+
+        jPanel3.add(jPanel12, java.awt.BorderLayout.NORTH);
 
         jTabbedPane2.addTab("Customer", jPanel3);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 903, javax.swing.GroupLayout.PREFERRED_SIZE))
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        jPanel6.setLayout(new java.awt.GridLayout(3, 0));
+
+        btnOrderAdd.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnOrderAdd.setText("Add");
+        btnOrderAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderAddActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnOrderAdd);
+
+        btnOrderMark.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnOrderMark.setText("Mark");
+        btnOrderMark.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderMarkActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnOrderMark);
+
+        btnOrderRemove.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnOrderRemove.setText("Remove");
+        btnOrderRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderRemoveActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnOrderRemove);
+
+        jPanel2.add(jPanel6, java.awt.BorderLayout.WEST);
+
+        jPanel7.setLayout(new java.awt.GridLayout(2, 0));
+
+        jTableOrderProduct.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jTableOrderProduct.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "id", "name", "desc", "stocks", "price"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableOrderProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableOrderProductMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTableOrderProduct);
+
+        jPanel7.add(jScrollPane2);
+
+        jTableOrder.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jTableOrder.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Contact", "Product", "Quantity", "Price"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableOrder.setRowSelectionAllowed(false);
+        jScrollPane4.setViewportView(jTableOrder);
+
+        jPanel7.add(jScrollPane4);
+
+        jTableOrderCustomer.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jTableOrderCustomer.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Customer no", "Name", "Mobile no", "Email"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(jTableOrderCustomer);
+
+        jPanel7.add(jScrollPane5);
+
+        jPanel2.add(jPanel7, java.awt.BorderLayout.CENTER);
+
+        jPanel10.setPreferredSize(new java.awt.Dimension(880, 50));
+
+        jLabel1.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
+        jLabel1.setText("Order");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
+
+        jPanel2.add(jPanel10, java.awt.BorderLayout.NORTH);
+
+        jTabbedPane2.addTab("Order", jPanel2);
+
+        getContentPane().add(jTabbedPane2, java.awt.BorderLayout.PAGE_START);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -612,44 +588,9 @@ public class IMSUI extends javax.swing.JFrame {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) jTableInventory.getModel();
-        int rowCount = jTableInventory.getRowCount();
-        int itemCount = 0;
-        String current;
-        Object[][] list;
-        for (int i = 0; i < rowCount; i++)
-        {
-            current = model.getValueAt(i, 1).toString();
-            if (current.equals(tfSearch.getText()))
-            {
-                itemCount++;
-            }
-        }
-        if (itemCount == 0)
-               return;
-        list = new Object[itemCount][5];
-        for (int i = 0; i < itemCount; i++)
-        {
-            current = model.getValueAt(i, 1).toString();
-            if (current.equals(tfSearch.getText()))
-            {
-                list[i][0] = model.getValueAt(i, 0);
-                list[i][1] = model.getValueAt(i, 1);
-                list[i][2] = model.getValueAt(i, 2);
-                list[i][3] = model.getValueAt(i, 3);
-                list[i][4] = model.getValueAt(i, 4);
-            }
-        }
-        Object[] addRowData = new Object[5];
-        model.setRowCount(0);
-        for ( int i = 0; i < itemCount; i++)
-        {
-            addRowData[0] = list[i][0];
-            addRowData[1] = list[i][1];
-            addRowData[2] = list[i][2];
-            addRowData[3] = list[i][3];
-            addRowData[4] = list[i][4];
-            model.addRow(addRowData);
-        }
+        TableRowSorter<DefaultTableModel> model1 = new TableRowSorter<>(model);
+        jTableInventory.setRowSorter(model1);
+        model1.setRowFilter(RowFilter.regexFilter(tfSearch.getText()));
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void tfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchActionPerformed
@@ -828,6 +769,10 @@ public class IMSUI extends javax.swing.JFrame {
         // TODO add your handling code here:        
     }//GEN-LAST:event_btnOrderMarkActionPerformed
 
+    private void tfSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSearchKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSearchKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -875,13 +820,25 @@ public class IMSUI extends javax.swing.JFrame {
     private javax.swing.JButton btnOrderRemove;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLable1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
