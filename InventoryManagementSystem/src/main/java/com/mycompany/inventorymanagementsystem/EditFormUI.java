@@ -72,7 +72,7 @@ public class EditFormUI extends javax.swing.JFrame {
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
         tfId.setColumns(12);
-        tfId.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        tfId.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         tfId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfIdActionPerformed(evt);
@@ -87,7 +87,7 @@ public class EditFormUI extends javax.swing.JFrame {
         jPanel6.add(tfId, gridBagConstraints);
 
         tfName.setColumns(12);
-        tfName.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        tfName.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         tfName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNameActionPerformed(evt);
@@ -102,7 +102,7 @@ public class EditFormUI extends javax.swing.JFrame {
         jPanel6.add(tfName, gridBagConstraints);
 
         tfDesc.setColumns(12);
-        tfDesc.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        tfDesc.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         tfDesc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfDescActionPerformed(evt);
@@ -117,7 +117,7 @@ public class EditFormUI extends javax.swing.JFrame {
         jPanel6.add(tfDesc, gridBagConstraints);
 
         tfQty.setColumns(12);
-        tfQty.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        tfQty.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         tfQty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfQtyActionPerformed(evt);
@@ -132,7 +132,7 @@ public class EditFormUI extends javax.swing.JFrame {
         jPanel6.add(tfQty, gridBagConstraints);
 
         tfPrice.setColumns(12);
-        tfPrice.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        tfPrice.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         tfPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfPriceActionPerformed(evt);
@@ -146,7 +146,7 @@ public class EditFormUI extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel6.add(tfPrice, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setText("Id");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -157,7 +157,7 @@ public class EditFormUI extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel6.add(jLabel1, gridBagConstraints);
 
-        jLabel2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Name");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -168,7 +168,7 @@ public class EditFormUI extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel6.add(jLabel2, gridBagConstraints);
 
-        jLabel4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("Description");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -179,7 +179,7 @@ public class EditFormUI extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel6.add(jLabel4, gridBagConstraints);
 
-        jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("Quantity");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -190,7 +190,7 @@ public class EditFormUI extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel6.add(jLabel3, gridBagConstraints);
 
-        jLabel5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel5.setText("Price");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -207,7 +207,7 @@ public class EditFormUI extends javax.swing.JFrame {
 
         jPanel4.setLayout(new java.awt.GridLayout(4, 0, 2, 2));
 
-        btnAdd.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnAdd.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         btnAdd.setText("ADD");
         btnAdd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -217,7 +217,7 @@ public class EditFormUI extends javax.swing.JFrame {
         });
         jPanel4.add(btnAdd);
 
-        btnSet.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnSet.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         btnSet.setText("SET");
         btnSet.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSet.addActionListener(new java.awt.event.ActionListener() {
@@ -227,7 +227,7 @@ public class EditFormUI extends javax.swing.JFrame {
         });
         jPanel4.add(btnSet);
 
-        jButton1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jButton1.setText("OKAY");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -237,8 +237,8 @@ public class EditFormUI extends javax.swing.JFrame {
         });
         jPanel4.add(jButton1);
 
-        btnRemove.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        btnRemove.setText("DELETE");
+        btnRemove.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        btnRemove.setText("REMOVE");
         btnRemove.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

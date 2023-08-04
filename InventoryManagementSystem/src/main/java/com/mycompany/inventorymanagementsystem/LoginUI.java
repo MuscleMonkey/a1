@@ -54,6 +54,8 @@ public class LoginUI extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 200));
@@ -61,19 +63,18 @@ public class LoginUI extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(153, 153, 153));
         jPanel4.setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 51));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("USER");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setText("User");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         jPanel1.add(jLabel1, gridBagConstraints);
 
         tfUser.setColumns(15);
-        tfUser.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        tfUser.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         tfUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfUserActionPerformed(evt);
@@ -81,15 +82,15 @@ public class LoginUI extends javax.swing.JFrame {
         });
         jPanel1.add(tfUser, new java.awt.GridBagConstraints());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setText("PASSWORD");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel2.setText("Password ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         jPanel1.add(jLabel2, gridBagConstraints);
 
         jPasswordField1.setColumns(15);
-        jPasswordField1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
@@ -102,7 +103,7 @@ public class LoginUI extends javax.swing.JFrame {
 
         jPanel4.add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnLogin.setText("login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,16 +112,23 @@ public class LoginUI extends javax.swing.JFrame {
         });
         jPanel4.add(btnLogin, java.awt.BorderLayout.SOUTH);
 
-        jPanel2.setBackground(new java.awt.Color(153, 255, 153));
-        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 5, true));
+        jPanel2.setBackground(new java.awt.Color(102, 204, 255));
 
-        jLabel3.setFont(new java.awt.Font("sansserif", 0, 48)); // NOI18N
-        jLabel3.setText("Login");
+        jLabel3.setFont(new java.awt.Font("MS UI Gothic", 1, 87)); // NOI18N
+        jLabel3.setText("LOGIN");
         jPanel2.add(jLabel3);
 
         jPanel4.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
         getContentPane().add(jPanel4, java.awt.BorderLayout.CENTER);
+
+        jPanel3.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel3.setPreferredSize(new java.awt.Dimension(100, 50));
+        getContentPane().add(jPanel3, java.awt.BorderLayout.WEST);
+
+        jPanel5.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel5.setPreferredSize(new java.awt.Dimension(100, 50));
+        getContentPane().add(jPanel5, java.awt.BorderLayout.EAST);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -187,7 +195,9 @@ public class LoginUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField tfUser;
     // End of variables declaration//GEN-END:variables
