@@ -58,7 +58,7 @@ public class EditFormUI extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel2.setBackground(new java.awt.Color(153, 255, 153));
+        jPanel2.setBackground(new java.awt.Color(0, 204, 255));
 
         jLabel6.setFont(new java.awt.Font("sansserif", 1, 48)); // NOI18N
         jLabel6.setText("Form");
@@ -68,6 +68,7 @@ public class EditFormUI extends javax.swing.JFrame {
 
         jPanel3.setLayout(new java.awt.GridLayout(0, 1));
 
+        jPanel6.setBackground(new java.awt.Color(102, 204, 255));
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
         tfId.setColumns(12);

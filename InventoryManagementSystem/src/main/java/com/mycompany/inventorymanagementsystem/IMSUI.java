@@ -158,6 +158,7 @@ public class IMSUI extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel9 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -215,9 +216,15 @@ public class IMSUI extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(102, 255, 102));
+        setBackground(new java.awt.Color(255, 255, 255));
         setLocationByPlatform(true);
 
+        jPanel13.setLayout(new java.awt.BorderLayout());
+
+        jTabbedPane2.setBackground(new java.awt.Color(102, 204, 255));
+        jTabbedPane2.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+        jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        jTabbedPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTabbedPane2.setPreferredSize(new java.awt.Dimension(1000, 400));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -254,6 +261,8 @@ public class IMSUI extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel1.add(jScrollPane1, gridBagConstraints);
 
+        jPanel4.setBackground(new java.awt.Color(102, 204, 255));
+
         btnEdit.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnEdit.setText("Buttons");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -277,6 +286,8 @@ public class IMSUI extends javax.swing.JFrame {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         jPanel1.add(jPanel4, gridBagConstraints);
+
+        jPanel5.setBackground(new java.awt.Color(102, 204, 255));
 
         tfSearch.setColumns(12);
         tfSearch.setToolTipText("type product name...");
@@ -306,6 +317,8 @@ public class IMSUI extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.RELATIVE;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         jPanel1.add(jPanel5, gridBagConstraints);
+
+        jPanel11.setBackground(new java.awt.Color(0, 204, 255));
 
         jLabel5.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         jLabel5.setText("Inventory");
@@ -349,6 +362,7 @@ public class IMSUI extends javax.swing.JFrame {
 
         jPanel3.add(jScrollPane3, java.awt.BorderLayout.CENTER);
 
+        jPanel8.setBackground(new java.awt.Color(102, 204, 255));
         jPanel8.setLayout(new java.awt.GridLayout(6, 2, 10, 10));
 
         jLable1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -357,6 +371,11 @@ public class IMSUI extends javax.swing.JFrame {
 
         tfCustomerNo.setColumns(12);
         tfCustomerNo.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        tfCustomerNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCustomerNoActionPerformed(evt);
+            }
+        });
         jPanel8.add(tfCustomerNo);
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -436,6 +455,8 @@ public class IMSUI extends javax.swing.JFrame {
 
         jPanel3.add(jPanel8, java.awt.BorderLayout.WEST);
 
+        jPanel12.setBackground(new java.awt.Color(0, 204, 255));
+
         jLabel6.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         jLabel6.setText("Customer");
         jPanel12.add(jLabel6);
@@ -477,7 +498,8 @@ public class IMSUI extends javax.swing.JFrame {
 
         jPanel2.add(jPanel6, java.awt.BorderLayout.WEST);
 
-        jPanel7.setLayout(new java.awt.GridLayout(2, 0));
+        jPanel7.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel7.setLayout(new java.awt.GridLayout(2, 6, 0, 3));
 
         jTableOrderProduct.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jTableOrderProduct.setModel(new javax.swing.table.DefaultTableModel(
@@ -550,6 +572,7 @@ public class IMSUI extends javax.swing.JFrame {
 
         jPanel2.add(jPanel7, java.awt.BorderLayout.CENTER);
 
+        jPanel10.setBackground(new java.awt.Color(0, 204, 255));
         jPanel10.setPreferredSize(new java.awt.Dimension(880, 50));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
@@ -559,28 +582,30 @@ public class IMSUI extends javax.swing.JFrame {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGap(0, 912, Short.MAX_VALUE)
             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel10Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 397, Short.MAX_VALUE)
                     .addComponent(jLabel1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 398, Short.MAX_VALUE)))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 50, Short.MAX_VALUE)
             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel10Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 3, Short.MAX_VALUE)
                     .addComponent(jLabel1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 4, Short.MAX_VALUE)))
         );
 
         jPanel2.add(jPanel10, java.awt.BorderLayout.NORTH);
 
         jTabbedPane2.addTab("Order", jPanel2);
 
-        getContentPane().add(jTabbedPane2, java.awt.BorderLayout.PAGE_START);
+        jPanel13.add(jTabbedPane2, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(jPanel13, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -643,11 +668,16 @@ public class IMSUI extends javax.swing.JFrame {
         }
         int selectedRow = jTableCustomer.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) jTableCustomer.getModel();
-
+        DefaultTableModel model1 = (DefaultTableModel) jTableOrderCustomer.getModel();
+        
         model.setValueAt(tfCustomerNo.getText(), selectedRow, 0);
         model.setValueAt(tfName.getText(), selectedRow, 1);
         model.setValueAt(tfEmail.getText(), selectedRow, 2);
         model.setValueAt(tfPhoneNo.getText(), selectedRow, 3);
+        model1.setValueAt(tfCustomerNo.getText(), selectedRow, 0);
+        model1.setValueAt(tfName.getText(), selectedRow, 1);
+        model1.setValueAt(tfEmail.getText(), selectedRow, 2);
+        model1.setValueAt(tfPhoneNo.getText(), selectedRow, 3);
     }//GEN-LAST:event_btnCustomerEditActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
@@ -773,6 +803,10 @@ public class IMSUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfSearchKeyPressed
 
+    private void tfCustomerNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCustomerNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCustomerNoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -831,6 +865,7 @@ public class IMSUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
