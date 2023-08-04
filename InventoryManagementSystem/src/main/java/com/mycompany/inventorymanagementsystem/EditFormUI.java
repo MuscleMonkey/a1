@@ -276,35 +276,31 @@ public class EditFormUI extends javax.swing.JFrame {
 
     private void btnSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetActionPerformed
         // TODO add your handling code here:
-        if (IMSUI.jTableInventory.getSelectedRowCount() == 0)
-        {
+        if (IMSUI.jTableInventory.getSelectedRowCount() == 0) {
             JOptionPane.showMessageDialog(null, "No row is selected");
             return;
         }
         DefaultTableModel model = (DefaultTableModel) IMSUI.jTableInventory.getModel();
-        
-        
+
         int selectedRow = IMSUI.jTableInventory.getSelectedRow();
-        
-       
-        model.setValueAt(tfId.getText(), selectedRow,0);
-        model.setValueAt(tfName.getText(), selectedRow,1);
-        model.setValueAt(tfDesc.getText(), selectedRow,2);
-        model.setValueAt(tfQty.getText(), selectedRow,3);
-        model.setValueAt(tfPrice.getText(), selectedRow,4);
-        
+
+        model.setValueAt(tfId.getText(), selectedRow, 0);
+        model.setValueAt(tfName.getText(), selectedRow, 1);
+        model.setValueAt(tfDesc.getText(), selectedRow, 2);
+        model.setValueAt(tfQty.getText(), selectedRow, 3);
+        model.setValueAt(tfPrice.getText(), selectedRow, 4);
+
         DefaultTableModel model1 = (DefaultTableModel) IMSUI.jTableOrderProduct.getModel();
-        model1.setValueAt(tfId.getText(), selectedRow,0);
-        model1.setValueAt(tfName.getText(), selectedRow,1);
-        model1.setValueAt(tfDesc.getText(), selectedRow,2);
-        model1.setValueAt(tfQty.getText(), selectedRow,3);
-        model1.setValueAt(tfPrice.getText(), selectedRow,4);
+        model1.setValueAt(tfId.getText(), selectedRow, 0);
+        model1.setValueAt(tfName.getText(), selectedRow, 1);
+        model1.setValueAt(tfDesc.getText(), selectedRow, 2);
+        model1.setValueAt(tfQty.getText(), selectedRow, 3);
+        model1.setValueAt(tfPrice.getText(), selectedRow, 4);
     }//GEN-LAST:event_btnSetActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        if (tfDesc.getText().trim().isEmpty() && tfId.getText().trim().isEmpty() && tfName.getText().trim().isEmpty() && tfName.getText().trim().isEmpty() && tfPrice.getText().trim().isEmpty() && tfQty.getText().trim().isEmpty())
-        {
+        if (tfDesc.getText().trim().isEmpty() && tfId.getText().trim().isEmpty() && tfName.getText().trim().isEmpty() && tfName.getText().trim().isEmpty() && tfPrice.getText().trim().isEmpty() && tfQty.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Fields should not be empty.");
             return;
         }
@@ -332,11 +328,11 @@ public class EditFormUI extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) IMSUI.jTableInventory.getModel();
         DefaultTableModel model2 = (DefaultTableModel) IMSUI.jTableOrderProduct.getModel();
         int selectedRow = IMSUI.jTableInventory.getSelectedRow();
-        
+
         if (IMSUI.jTableInventory.getSelectedRowCount() == 1) {
             model.removeRow(selectedRow);
             model2.removeRow(selectedRow);
-        } else if (IMSUI.jTableInventory.getSelectedRowCount()== 0) {
+        } else if (IMSUI.jTableInventory.getSelectedRowCount() == 0) {
             JOptionPane.showMessageDialog(null, "No Row Is Selected");
         }
 

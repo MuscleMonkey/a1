@@ -640,8 +640,6 @@ public class IMSUI extends javax.swing.JFrame {
         EditFormUI.tfDesc.setText(jTableInventory.getValueAt(selectedRow, 2).toString());
         EditFormUI.tfQty.setText(jTableInventory.getValueAt(selectedRow, 3).toString());
         EditFormUI.tfPrice.setText(jTableInventory.getValueAt(selectedRow, 4).toString());
-
-
     }//GEN-LAST:event_jTableInventoryMouseClicked
 
     private void jTableOrderProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableOrderProductMouseClicked
@@ -669,7 +667,7 @@ public class IMSUI extends javax.swing.JFrame {
         int selectedRow = jTableCustomer.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) jTableCustomer.getModel();
         DefaultTableModel model1 = (DefaultTableModel) jTableOrderCustomer.getModel();
-        
+
         model.setValueAt(tfCustomerNo.getText(), selectedRow, 0);
         model.setValueAt(tfName.getText(), selectedRow, 1);
         model.setValueAt(tfEmail.getText(), selectedRow, 2);
@@ -739,7 +737,7 @@ public class IMSUI extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-        
+
         int confirmDialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to logout?", null, JOptionPane.YES_NO_OPTION);
         if (confirmDialog == JOptionPane.YES_OPTION) {
             this.hide();
@@ -758,18 +756,18 @@ public class IMSUI extends javax.swing.JFrame {
             int customerSelectedRow = jTableOrderCustomer.getSelectedRow();
             int quantity = Integer.parseInt(JOptionPane.showInputDialog("How many? "));
             try {
-                model1.getValueAt(productSelectedRow,3);
+                model1.getValueAt(productSelectedRow, 3);
                 int qtfTable = Integer.parseInt(model4.getValueAt(productSelectedRow, 3).toString());
                 System.out.print(("check"));
                 if (quantity > qtfTable) {
-                JOptionPane.showMessageDialog(null, "Not Enough Stocks!");
-                return;
-            } else {
-                int stockString = Integer.parseInt(model1.getValueAt(productSelectedRow, 3).toString());
-                Integer stocksLeft =  stockString - quantity;
-                model1.setValueAt(stocksLeft, productSelectedRow, 3);
-                model4.setValueAt(stocksLeft, productSelectedRow, 3);
-            }
+                    JOptionPane.showMessageDialog(null, "Not Enough Stocks!");
+                    return;
+                } else {
+                    int stockString = Integer.parseInt(model1.getValueAt(productSelectedRow, 3).toString());
+                    Integer stocksLeft = stockString - quantity;
+                    model1.setValueAt(stocksLeft, productSelectedRow, 3);
+                    model4.setValueAt(stocksLeft, productSelectedRow, 3);
+                }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
             }
