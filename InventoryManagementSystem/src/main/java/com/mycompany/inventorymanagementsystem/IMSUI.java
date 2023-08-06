@@ -185,7 +185,7 @@ public class IMSUI extends javax.swing.JFrame {
         tfEmail = new javax.swing.JTextField();
         btnClear = new javax.swing.JButton();
         btnCustomerEdit = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnRemoveRow = new javax.swing.JButton();
         btnCustomerAdd = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -193,12 +193,14 @@ public class IMSUI extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         btnOrderAdd = new javax.swing.JButton();
         btnOrderRemove = new javax.swing.JButton();
-        btnOrderMark = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableOrderProduct = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTableOrder = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTableOrderCustomer = new javax.swing.JTable();
         jPanel10 = new javax.swing.JPanel();
@@ -218,8 +220,7 @@ public class IMSUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setLocationByPlatform(true);
-        setPreferredSize(new java.awt.Dimension(1500, 600));
-        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(1200, 800));
 
         jPanel13.setLayout(new java.awt.BorderLayout());
 
@@ -449,15 +450,15 @@ public class IMSUI extends javax.swing.JFrame {
         });
         jPanel8.add(btnCustomerEdit);
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jButton3.setText("Remove");
-        jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnRemoveRow.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnRemoveRow.setText("Remove");
+        btnRemoveRow.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnRemoveRow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnRemoveRowActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton3);
+        jPanel8.add(btnRemoveRow);
 
         btnCustomerAdd.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnCustomerAdd.setText("Add");
@@ -484,7 +485,7 @@ public class IMSUI extends javax.swing.JFrame {
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        jPanel6.setLayout(new java.awt.GridLayout(3, 0));
+        jPanel6.setLayout(new java.awt.GridLayout(2, 0));
 
         btnOrderAdd.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         btnOrderAdd.setText("+");
@@ -506,22 +507,29 @@ public class IMSUI extends javax.swing.JFrame {
         });
         jPanel6.add(btnOrderRemove);
 
-        btnOrderMark.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        btnOrderMark.setText("Mark");
-        btnOrderMark.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnOrderMark.setPreferredSize(new java.awt.Dimension(70, 28));
-        btnOrderMark.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderMarkActionPerformed(evt);
-            }
-        });
-        jPanel6.add(btnOrderMark);
-
         jPanel2.add(jPanel6, java.awt.BorderLayout.WEST);
 
         jPanel7.setBackground(new java.awt.Color(102, 204, 255));
         jPanel7.setPreferredSize(new java.awt.Dimension(904, 700));
-        jPanel7.setLayout(new java.awt.GridLayout(2, 6, 0, 3));
+        jPanel7.setLayout(new java.awt.GridBagLayout());
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Products");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        jPanel7.add(jLabel8, gridBagConstraints);
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Orders");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        jPanel7.add(jLabel9, gridBagConstraints);
 
         jScrollPane2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
@@ -550,7 +558,12 @@ public class IMSUI extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableOrderProduct);
 
-        jPanel7.add(jScrollPane2);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.5;
+        jPanel7.add(jScrollPane2, gridBagConstraints);
 
         jScrollPane4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
@@ -575,7 +588,20 @@ public class IMSUI extends javax.swing.JFrame {
         jTableOrder.setRowSelectionAllowed(false);
         jScrollPane4.setViewportView(jTableOrder);
 
-        jPanel7.add(jScrollPane4);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.5;
+        jPanel7.add(jScrollPane4, gridBagConstraints);
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Customers");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        jPanel7.add(jLabel7, gridBagConstraints);
 
         jScrollPane5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
@@ -599,7 +625,12 @@ public class IMSUI extends javax.swing.JFrame {
         jTableOrderCustomer.setRowHeight(40);
         jScrollPane5.setViewportView(jTableOrderCustomer);
 
-        jPanel7.add(jScrollPane5);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.5;
+        jPanel7.add(jScrollPane5, gridBagConstraints);
 
         jPanel2.add(jPanel7, java.awt.BorderLayout.CENTER);
 
@@ -614,12 +645,12 @@ public class IMSUI extends javax.swing.JFrame {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 857, Short.MAX_VALUE)
+            .addGap(0, 1089, Short.MAX_VALUE)
             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel10Layout.createSequentialGroup()
-                    .addGap(0, 363, Short.MAX_VALUE)
+                    .addGap(0, 543, Short.MAX_VALUE)
                     .addComponent(jLabel1)
-                    .addGap(0, 363, Short.MAX_VALUE)))
+                    .addGap(0, 415, Short.MAX_VALUE)))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -652,16 +683,12 @@ public class IMSUI extends javax.swing.JFrame {
 
     private void tfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) jTableInventory.getModel();
-        model.setRowCount(0);
-        addRowToData();
     }//GEN-LAST:event_tfSearchActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here
         new EditFormUI().show();
         btnEdit.setEnabled(false);
-
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void jTableInventoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableInventoryMouseClicked
@@ -757,19 +784,19 @@ public class IMSUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTableCustomerMouseClicked
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnRemoveRowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveRowActionPerformed
         if (jTableCustomer.getRowCount() == 0) {
             JOptionPane.showMessageDialog(null, "Table is empty.");
             return;
         }
         DefaultTableModel model = (DefaultTableModel) jTableCustomer.getModel();
         DefaultTableModel model1 = (DefaultTableModel) jTableOrderCustomer.getModel();
-        
+
         int selectedRow = jTableCustomer.getSelectedRow();
         model.removeRow(selectedRow);
         model1.removeRow(selectedRow);
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
+
+    }//GEN-LAST:event_btnRemoveRowActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
@@ -817,7 +844,7 @@ public class IMSUI extends javax.swing.JFrame {
             model2.addRow(rowData3);
 
         } else {
-
+            
         }
     }//GEN-LAST:event_btnOrderAddActionPerformed
 
@@ -828,10 +855,6 @@ public class IMSUI extends javax.swing.JFrame {
             model.removeRow(jTableOrder.getSelectedRow());
         }
     }//GEN-LAST:event_btnOrderRemoveActionPerformed
-
-    private void btnOrderMarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderMarkActionPerformed
-        // TODO add your handling code here:        
-    }//GEN-LAST:event_btnOrderMarkActionPerformed
 
     private void tfSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSearchKeyPressed
         // TODO add your handling code here:
@@ -884,16 +907,18 @@ public class IMSUI extends javax.swing.JFrame {
     public static javax.swing.JButton btnEdit;
     public static javax.swing.JButton btnLogout;
     private javax.swing.JButton btnOrderAdd;
-    private javax.swing.JButton btnOrderMark;
     private javax.swing.JButton btnOrderRemove;
+    private javax.swing.JButton btnRemoveRow;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLable1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;

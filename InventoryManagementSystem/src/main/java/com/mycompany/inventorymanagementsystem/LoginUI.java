@@ -59,6 +59,7 @@ public class LoginUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 200));
+        setPreferredSize(new java.awt.Dimension(674, 506));
 
         jPanel4.setBackground(new java.awt.Color(153, 153, 153));
         jPanel4.setLayout(new java.awt.BorderLayout());
@@ -123,11 +124,11 @@ public class LoginUI extends javax.swing.JFrame {
         getContentPane().add(jPanel4, java.awt.BorderLayout.CENTER);
 
         jPanel3.setBackground(new java.awt.Color(102, 204, 255));
-        jPanel3.setPreferredSize(new java.awt.Dimension(100, 50));
+        jPanel3.setPreferredSize(new java.awt.Dimension(10, 50));
         getContentPane().add(jPanel3, java.awt.BorderLayout.WEST);
 
         jPanel5.setBackground(new java.awt.Color(102, 204, 255));
-        jPanel5.setPreferredSize(new java.awt.Dimension(100, 50));
+        jPanel5.setPreferredSize(new java.awt.Dimension(10, 20));
         getContentPane().add(jPanel5, java.awt.BorderLayout.EAST);
 
         pack();

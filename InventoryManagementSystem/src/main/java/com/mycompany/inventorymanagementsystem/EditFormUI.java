@@ -48,7 +48,7 @@ public class EditFormUI extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         btnSet = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnFormOkay = new javax.swing.JButton();
         btnRemove = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -227,15 +227,15 @@ public class EditFormUI extends javax.swing.JFrame {
         });
         jPanel4.add(btnSet);
 
-        jButton1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jButton1.setText("OKAY");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnFormOkay.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        btnFormOkay.setText("OKAY");
+        btnFormOkay.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnFormOkay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnFormOkayActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton1);
+        jPanel4.add(btnFormOkay);
 
         btnRemove.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         btnRemove.setText("REMOVE");
@@ -316,12 +316,12 @@ public class EditFormUI extends javax.swing.JFrame {
         model2.addRow(obj);
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnFormOkayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFormOkayActionPerformed
         // TODO add your handling code here:
         this.hide();
         IMSUI.btnEdit.setEnabled(true);
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnFormOkayActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
@@ -378,9 +378,9 @@ public class EditFormUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnFormOkay;
     public javax.swing.JButton btnRemove;
     public javax.swing.JButton btnSet;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
